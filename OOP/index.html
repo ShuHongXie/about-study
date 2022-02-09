@@ -1,0 +1,38 @@
+<!--
+ * @Author: 谢树宏
+ * @Date: 2022-02-09 16:00:48
+ * @LastEditors: 谢树宏
+ * @LastEditTime: 2022-02-09 16:30:23
+ * @FilePath: /about-study/OOP/index.html
+-->
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <script>
+      // Object.create浅拷贝
+      function Person(name) {
+        this.name = name;
+      }
+      Person.prototype.search = function () {
+        console.log(this);
+      };
+      function Teacher(name, subject) {
+        Person.call(this, name);
+        this.subject = subject;
+      }
+
+      Teacher.prototype = Object.create(Person.prototype);
+      Person.prototype.searcho = function () {
+        console.log(this);
+      };
+      // 不修改会导致类型判断出错
+      Teacher.prototype.constructor = Teacher;
+      Teacher.prototype.setName = function () {
+        console.log(this.name);
+      };
+      const std = new Teacher("谢小谢", "化学");
+    </script>
+  </body>
+</html>

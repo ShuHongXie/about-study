@@ -1,6 +1,14 @@
+<!--
+ * @Author: 谢树宏
+ * @Date: 2022-02-08 10:24:32
+ * @LastEditors: 谢树宏
+ * @LastEditTime: 2022-02-09 15:15:21
+ * @FilePath: /about-study/webpack.md
+-->
+
 1. bundle 和 chunks 的区别 chunk 指 webpack 打包时的文件总称，bundle 是 webpack 打包完成后的文件总称
 2. vue-loader 和 style-loader 的区别，style-loader 是负责把 css 插入 dom， css-loader 被用来解析@import 和 url()这种 css 引入方式
-3. loaders 和 plugins 的区别，laoder 只负责对其他类型的资源进行转译的预处理，转换成 js。plugins 可以扩展 Webpack 的功能，在 Webpack 运行的生命周期中会广播出许多事件，Plugin 可以监听这些事件，在合适的时机通过 Webpack 提供的 API 改变输出结果。
+3. loaders 和 plugins 的区别，webpack 只能处理 js 文件，laoder 能对其他类型的资源进行转译的预处理，转换成 js。plugins 可以扩展 Webpack 的功能，在 Webpack 运行的生命周期中会广播出许多事件，Plugin 可以监听这些事件，在合适的时机通过 Webpack 提供的 API 改变输出结果。
 
 4. 构建优化手段
 
