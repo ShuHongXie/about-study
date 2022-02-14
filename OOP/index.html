@@ -2,7 +2,7 @@
  * @Author: 谢树宏
  * @Date: 2022-02-09 16:00:48
  * @LastEditors: 谢树宏
- * @LastEditTime: 2022-02-09 16:30:23
+ * @LastEditTime: 2022-02-14 16:15:23
  * @FilePath: /about-study/OOP/index.html
 -->
 <html>
@@ -33,6 +33,20 @@
         console.log(this.name);
       };
       const std = new Teacher("谢小谢", "化学");
+      console.log(std.__proto__);
+    </script>
+    <script>
+      // 重写instanceof方法
+      function newInstanceof(arg, origin) {
+        let proto = arg.__proto__;
+        let prototype = origin.prototype;
+        while (true) {
+          if (!proto) return false;
+          if (proto === prototype) return true;
+          proto = proto.__proto__;
+        }
+      }
+      console.log(newInstanceof(std, Function));
     </script>
   </body>
 </html>

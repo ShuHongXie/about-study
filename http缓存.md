@@ -1,3 +1,11 @@
+<!--
+ * @Author: 谢树宏
+ * @Date: 2022-02-14 09:10:06
+ * @LastEditors: 谢树宏
+ * @LastEditTime: 2022-02-14 17:15:17
+ * @FilePath: /about-study/http缓存.md
+-->
+
 ### 强缓存
 
 1. Expires：HTTP 日期，在浏览器发起请求时，会根据系统时间和 Expires 的值进行比，缺点：系统时间和服务器时间不准会引起缓存失效
@@ -89,3 +97,18 @@ https://juejin.cn/post/6844903958624878606
 问题：挥手为什么需要 4 次？
 
 因为当服务端收到客户端的 SYN 连接请求报文后，可以直接发送 SYN+ACK 报文。其中 ACK 报文是用来应答的，SYN 报文是用来同步的。但是关闭连接时，当服务端收到 FIN 报文时，很可能并不会立即关闭 SOCKET，所以只能先回复一个 ACK 报文，告诉客户端，"你发的 FIN 报文我收到了"。只有等到我服务端所有的报文都发送完了，我才能发送 FIN 报文，因此不能一起发送。故需要四次挥手。
+
+### https
+
+为什么诞生? 因为 http 本身是明文传输的，不安全，接收方和发送方并不会验证报文的完整性
+
+#### 对称加密和非对称加密搭配使用。数据传输阶段使用对称加密，对称加密的秘钥采用非对称加密
+
+1. ⾸先是 tcp 的三次握⼿建⽴连接
+1. client 发送 random1+⽀持的加密算法集合（clientHello）
+1. server 收到信息，返回选择⼀个加密算法+random2（serverHello）+ 证书+ 确认
+1. clent 验证证书有效性，并⽤ random1+random2 ⽣成 pre-master 通过服务器公钥加密 发送给 server
+1. server 收到 premaster，根据约定的加密算法对 random1+random2+premaster（解密）⽣成 master-s ecret，然后发送预定成功
+1. client 收到⽣成同样的 master-secert，对称加密秘钥传输完毕
+
+#### 引入 CA 数字证书解 DNS 劫持问题
