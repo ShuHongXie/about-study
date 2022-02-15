@@ -9,3 +9,5 @@
 ### let 和 const 对比 var
 
 1. 新增了块级作用域
+2. let const 未定义前使用会报错，这就是暂时性死区
+3. let const 不允许重复声明
