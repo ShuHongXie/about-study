@@ -1,0 +1,59 @@
+<!--
+ * @Author: 谢树宏
+ * @Date: 2022-02-15 11:03:00
+ * @LastEditors: 谢树宏
+ * @LastEditTime: 2022-02-15 11:34:27
+ * @FilePath: /about-study/promise/index.html
+-->
+<html>
+  <head></head>
+  <body>
+    <script>
+      const pro = new Promise((res, rej) => {
+        rej("12312");
+      });
+      pro
+        .then(
+          (res) => {
+            console.log(res);
+            return "123";
+          },
+          (err) => {
+            return "567";
+          }
+        )
+        .then((res) => {
+          console.log(res);
+        });
+
+      const p3 = () =>
+        new Promise((res, rej) => {
+          setTimeout(() => {
+            res("333");
+          }, 0);
+        });
+      const p1 = () =>
+        new Promise((res, rej) => {
+          setTimeout(() => {
+            res("123");
+          }, 2000);
+        });
+      const p2 = () =>
+        new Promise((res, rej) => {
+          setTimeout(() => {
+            res("456");
+          }, 1000);
+        });
+      const arr = [p1, p2, p3];
+      function xun(res) {
+        if (res) {
+          console.log(res);
+        }
+        if (arr.length) {
+          arr.shift()().then(xun);
+        }
+      }
+      xun();
+    </script>
+  </body>
+</html>
