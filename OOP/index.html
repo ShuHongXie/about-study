@@ -2,7 +2,7 @@
  * @Author: 谢树宏
  * @Date: 2022-02-09 16:00:48
  * @LastEditors: 谢树宏
- * @LastEditTime: 2022-02-14 16:15:23
+ * @LastEditTime: 2022-02-17 17:50:50
  * @FilePath: /about-study/OOP/index.html
 -->
 <html>
@@ -47,6 +47,24 @@
         }
       }
       console.log(newInstanceof(std, Function));
+    </script>
+    <script>
+      // setimeout实现setInterval
+      let index = 0;
+      let timer = null;
+      function setd() {
+        timer = setTimeout(() => {
+          index++;
+          if (index < 10) {
+            console.log(index);
+            clearTimeout(timer);
+            setd();
+          } else {
+            console.log("到达了");
+          }
+        }, 1000);
+      }
+      setd();
     </script>
   </body>
 </html>
