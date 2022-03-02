@@ -1,0 +1,87 @@
+<!--
+ * @Author: 谢树宏
+ * @Date: 2022-03-02 16:53:37
+ * @LastEditors: 谢树宏
+ * @LastEditTime: 2022-03-02 18:06:13
+ * @FilePath: /about-study/sheji/emit.html
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+  <body>
+    测试
+    <script type="text/javascript">
+      // node 发布订阅.js
+      const eventBus = {
+        eventList: {},
+        on(name, cb) {
+          if (typeof cb !== "function") {
+            console.log.warn("cb参数必须是一个函数");
+          }
+          if (!this.eventList.hasOwnProperty(name)) {
+            this.eventList[name] = [];
+          } else {
+            return;
+          }
+          this.eventList[name].push(cb);
+        },
+        emit(name, arg) {
+          console.log(name, this.eventList);
+          if (
+            this.eventList.hasOwnProperty(name) &&
+            this.eventList[name].length
+          ) {
+            for (const cb of this.eventList[name]) {
+              cb.call(this, arg);
+            }
+          } else {
+            console.warn(`当前未绑定事件${name}`);
+          }
+        },
+        off(name, fn) {
+          if (!name) {
+            this.eventList = {};
+          } else if (!fn) {
+            this.eventList[name] = [];
+          } else {
+            const index = this.eventList[name].findIndex((item) => item === fn);
+            if (index !== -1) {
+              this.eventList[name].splice(index, 1);
+            } else {
+              console.warn("当前队列没有绑定该函数");
+            }
+          }
+        },
+        once(name, cb) {
+          this.on(name, (arg) => {
+            cb(arg);
+            this.off(name);
+          });
+        },
+      };
+
+      function han(msg) {
+        console.log(`喊了${msg}`);
+      }
+
+      function shuo(msg) {
+        console.log(`说了${msg}`);
+      }
+
+      eventBus.on("test", han);
+
+      eventBus.on("shuo", shuo);
+
+      eventBus.emit("test", "速度");
+
+      eventBus.off("test", han);
+
+      eventBus.emit("test", "diu lei");
+
+      eventBus.emit("shuo", "i love you");
+    </script>
+  </body>
+</html>
