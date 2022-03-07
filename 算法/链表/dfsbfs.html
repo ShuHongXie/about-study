@@ -1,0 +1,84 @@
+<!--
+ * @Author: 谢树宏
+ * @Date: 2022-03-04 10:36:39
+ * @LastEditors: 谢树宏
+ * @LastEditTime: 2022-03-04 15:17:25
+ * @FilePath: /about-study/算法/dfsbfs.html
+-->
+<html>
+  <head>
+    <title>深度优先/广度优先</title>
+  </head>
+  <body>
+    深度优先/广度优先
+    <script>
+      // DFS深度优先 BFS广度优先
+      const vertices = []; // 图的顶点集合
+      const edges = new Map(); // 图的边集合
+      /**
+       * 添加节点
+       **/
+      const addVertex = (v) => {
+        vertices.push(v);
+        edges.set(v, []);
+      };
+
+      /**
+       * 添加边
+       **/
+      addEdge = (v, w) => {
+        const vEdge = edges.get(v);
+        vEdge.push(w);
+        const wEdge = edges.get(w);
+        wEdge.push(v);
+        edges.set(v, vEdge);
+        edges.set(w, wEdge);
+        console.log(edges);
+      };
+
+      formatToString = () => {
+        let s = "";
+        vertices.forEach((v) => {
+          s += `${v} -> `;
+          const neighors = edges.get(v);
+          neighors.forEach((n) => (s += `${n} `));
+          s += "\n";
+        });
+        return s;
+      };
+
+      addVertex(1);
+      addVertex(2);
+      addVertex(3);
+      addVertex(4);
+      addEdge(1, 2);
+      addEdge(1, 3);
+      addEdge(2, 4);
+
+      console.log(formatToString());
+
+      const graphBFS = (v, t) => {
+        const queue = [],
+          marked = [];
+        marked[v] = true;
+        queue.push(v); // 添加到队尾
+        while (queue.length > 0) {
+          const s = queue.shift(); // 从队首移除
+          if (t && s === t) {
+            console.log("target vertex: ", t);
+            return;
+          } else if (edges.has(s)) {
+            console.log("visited vertex: ", s);
+          }
+          const neighbors = edges.get(s);
+          neighors.forEach((n) => {
+            if (!marked[n]) {
+              marked[n] = true;
+              queue.push(n);
+            }
+          });
+        }
+      };
+    </script>
+  </body>
+</html>
