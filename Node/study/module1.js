@@ -1,8 +1,9 @@
+const m2 = require("./module2");
+
 function add() {
   return 123;
 }
 
-exports.add = add;
 module.exports = add;
 
-console.log(module.exports, exports);
+console.log(module);
