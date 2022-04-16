@@ -6,7 +6,7 @@ var rs = fs.createReadStream("./test.md", {
   highWaterMark: 11,
   encoding: "utf8",
 });
-// rs.setEncoding("utf8");
+rs.setEncoding("utf8");
 let data = "";
 rs.on("data", function (chunk) {
   data += chunk;
