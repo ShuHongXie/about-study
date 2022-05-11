@@ -31,3 +31,13 @@ watch 内部也是创建了一个 watcher 实例，只不过 get 方法在调用
 4. 新旧的在没有绑定 key 的情况下，会去旧的列表里面找看看有没有跟当前 newVnode 相同的元素，如果没有就在旧的前面插入当前 newVnode。如果旧列表里面有当前元素，会拿当前 newVnode 和旧列表中的相同元素做对比，如果相同，就会在当前 oldStartIndex 前插入 newVnode，旧的相同元素置为 undefined, 如果不同，也会在当前 oldStartIndex 前插入 newVnode。同时下标前进一位
 
 5. 当下标不断收缩时，如果旧开始标位大于旧结束标为时，说明旧的已经对比完成了,如增加新数据的 newStartIdx,newEndIdx 中的数据，如果新开始标位大于新结束标位，那说明有删除项，就把 oldStartIdx 到 oldEndIdx 之中的数据删除
+
+### 虚拟相关
+
+> 正常⽣命周期：beforeRouteEnter --> created --> mounted --> updated -->destroyed
+
+使⽤ keepAlive 后⽣命周期：
+
+> ⾸次进⼊缓存页⾯：beforeRouteEnter --> created --> mounted --> activated --> deactivated
+
+> 再次进⼊缓存页⾯：beforeRouteEnter --> activated --> deactivated
