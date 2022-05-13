@@ -28,3 +28,7 @@
    2. chunkhash：文件的改动只会影响其所在 chunk 的 hash 值；
    3. contenthash：每个文件都有单独的 hash 值，文件的改动只会影响自身的 hash 值；
       假如文件引入的子文件发生变化，那么当前文件的 contentHash 也会发生变化，但是如果当前文件变了，子引用不会发生变化，这对于 http 缓存是最好的选择，保存了当前的文件缓存
+
+### 相关插件
+
+1.FriendlyErrorsWebpackPlugin：去除 webpack-dev-server 控制台打印
