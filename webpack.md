@@ -1,8 +1,8 @@
 <!--
  * @Author: 谢树宏
  * @Date: 2022-02-08 10:24:32
- * @LastEditors: 谢树宏
- * @LastEditTime: 2022-02-09 15:15:21
+ * @LastEditors: 谢树宏 384180258@qq.com
+ * @LastEditTime: 2022-06-01
  * @FilePath: /about-study/webpack.md
 -->
 
@@ -33,3 +33,4 @@
 ### 相关插件
 
 1.FriendlyErrorsWebpackPlugin：去除 webpack-dev-server 控制台打印
+2.speed-measure-webpack-plugin：输出 webpack 的构建时间
