@@ -17,7 +17,10 @@ Monorepo：单裤。要求我们只用一个代码仓库来管理一个大项目
 
 ### 创建仓库
 
-lerna create 包名称
+lerna create 包名称 包地址
+```js
+lerna create cli packages/@fat
+```
 
 ### 增加包
 

@@ -2,7 +2,7 @@
  * @Author: 谢树宏
  * @Date: 2022-02-08 10:24:32
  * @LastEditors: 谢树宏 384180258@qq.com
- * @LastEditTime: 2022-06-01
+ * @LastEditTime: 2022-06-09
  * @FilePath: /about-study/webpack.md
 -->
 
@@ -29,6 +29,13 @@
    2. chunkhash：文件的改动只会影响其所在 chunk 的 hash 值；
    3. contenthash：每个文件都有单独的 hash 值，文件的改动只会影响自身的 hash 值；
       假如文件引入的子文件发生变化，那么当前文件的 contentHash 也会发生变化，但是如果当前文件变了，子引用不会发生变化，这对于 http 缓存是最好的选择，保存了当前的文件缓存
+
+### 概念
+
+chunk 有两种形式
+
+1. chunk(初始化 chunk), entry 所配置的 chunk，由 output.filename 来决定名称
+2. non-initial, 可以延迟加载的模块，比如 import 引入的 由 output.chunkFilename 来决定名称
 
 ### 相关插件
 
