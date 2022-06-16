@@ -1,8 +1,8 @@
 <!--
  * @Author: 谢树宏
  * @Date: 2022-05-12 16:09:47
- * @LastEditors: 谢树宏
- * @LastEditTime: 2022-05-17 16:47:38
+ * @LastEditors: 谢树宏 384180258@qq.com
+ * @LastEditTime: 2022-06-14
  * @FilePath: /about-study/Lerna.md
 -->
 
@@ -18,6 +18,7 @@ Monorepo：单裤。要求我们只用一个代码仓库来管理一个大项目
 ### 创建仓库
 
 lerna create 包名称 包地址
+
 ```js
 lerna create cli packages/@fat
 ```
@@ -60,3 +61,8 @@ lerna ll 查看具体包信息，包括版本号，路径等
 ### 查看当前包差异
 
 lerna diff
+
+### 发布 lerna 包
+
+lerna publish --canary
+然后进入子包 npm publish
