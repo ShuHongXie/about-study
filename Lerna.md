@@ -2,7 +2,7 @@
  * @Author: 谢树宏
  * @Date: 2022-05-12 16:09:47
  * @LastEditors: 谢树宏 384180258@qq.com
- * @LastEditTime: 2022-06-14
+ * @LastEditTime: 2022-06-17
  * @FilePath: /about-study/Lerna.md
 -->
 
@@ -20,7 +20,7 @@ Monorepo：单裤。要求我们只用一个代码仓库来管理一个大项目
 lerna create 包名称 包地址
 
 ```js
-lerna create cli packages/@fat
+lerna create cli packages/@wanbiao
 ```
 
 ### 增加包

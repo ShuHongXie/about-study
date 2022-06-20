@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // 单链表的JS实现
+
+      // 结点实例
+      class Node {
+        constructor(data) {
+          this.data = data; // 数据
+          this.next = null; // 后指针
+        }
+      }
+      // 链表实例
+      class LinkList {
+        constructor(nodes) {
+          this.length = 0;
+          this.head = null;
+          if (nodes) {
+            this.head = new Node(nodes.shift());
+            this.length = nodes.length;
+            this.init(nodes);
+          }
+        }
+        // 初始化
+        init(nodes) {
+          let currNode = this.head;
+          nodes.forEach((node) => {
+            let newNode = new Node(node);
+            currNode.next = newNode;
+            currNode = newNode;
+          });
+        }
+        // 增加
+        push(item) {
+          let currNode = this.head;
+          if (!this.length) {
+            this.head = new Node(item);
+            console.log(currNode, this.head);
+            this.length = 1;
+            return;
+          }
+          while (currNode.next) {
+            currNode = currNode.next;
+          }
+          currNode.next = new Node(item);
+          this.length++;
+          return this;
+        }
+        // 获取某一项
+        get(index) {
+          let i = 0;
+          let item = this.head;
+          if (index > this.length - 1 || index < 0) {
+            return null;
+          }
+          while (item.next) {
+            if (i === index) {
+              break;
+            }
+            i++;
+            item = item.next;
+          }
+          return item;
+        }
+        // 向指定索引的链表前插入项
+        insert(index, node) {
+          let i = 0;
+          let currNode = this.head;
+
+          if (index >= this.length || index < 0) {
+            throw "outOfIndexError";
+            return;
+          }
+
+          if (index === 0) {
+            node.next = currNode;
+            this.head = node;
+            this.length++;
+            return;
+          }
+          while (currNode.next) {
+            if (i === index - 1) {
+              let newNode = new Node(node);
+              let selectNode = this.get(index);
+              console.log(selectNode, currNode, newNode);
+              currNode.next = newNode;
+              newNode.next = selectNode;
+              this.length++;
+              break;
+            }
+            i++;
+            currNode = currNode.next;
+          }
+        }
+        // 链表转换成字符串
+        display() {
+          let str = "";
+          let item = this.head;
+          str = item.data;
+          while (item.next) {
+            str += "->" + item.next.data;
+            item = item.next;
+          }
+          console.log(str);
+        }
+      }
+
+      const Link = new LinkList([5, 3, 1]);
+      Link.push(123);
+      Link.insert(2, 444);
+      Link.display();
+      console.log(Link.get(1).data);
+    </script>
+  </body>
+</html>
