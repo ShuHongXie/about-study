@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      class BinaryTree {
+        constructor(tree = []) {
+          this.root = null;
+          this.Node = (key) => {
+            const child = Object.create(null, {});
+            child.key = key;
+            child.left = null;
+            child.right = null;
+            return child;
+          };
+
+          if (Array.isArray(tree)) {
+            this.insertBucket(tree);
+          } else if (typeof tree === "number") {
+            this.insert(tree);
+          }
+        }
+        // 插入，主要还是使用了递归插入
+        insert(data) {
+          let newNode = this.Node(data);
+          const insertNode = (root, newNode) => {
+            // console.log(root, newNode);
+            if (newNode.key < root.key) {
+              if (root.left) {
+                insertNode(root.left, newNode);
+              } else {
+                root.left = newNode;
+              }
+            } else if (newNode.key > root.key) {
+              if (root.right) {
+                insertNode(root.right, newNode);
+              } else {
+                root.right = newNode;
+              }
+            }
+          };
+          if (!this.root) {
+            this.root = newNode;
+          } else {
+            insertNode(this.root, newNode);
+          }
+        }
+				
+        insertBucket(data) {
+          data.forEach((item) => {
+            this.insert(item);
+          });
+        }
+				
+				inOrderTraverse(fn) {
+					
+				}
+      }
+
+      const newTree = new BinaryTree([8,3,6,4,9,11,2,5,7]);
+			let arr1 = []
+			// newTree.inOrderTraverse((key) => {
+			// 	console.log('---')
+			// 	arr1.push(key);
+			// })
+			console.log(newTree.root)
+      // console.log(newTree);
+			
+			/*
+								8
+						3      9
+					2		6	     11
+			      4   7
+			        5
+			*/
+    </script>
+  </body>
+</html>
