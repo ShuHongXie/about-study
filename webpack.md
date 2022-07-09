@@ -2,7 +2,7 @@
  * @Author: 谢树宏
  * @Date: 2022-02-08 10:24:32
  * @LastEditors: 谢树宏 384180258@qq.com
- * @LastEditTime: 2022-06-09
+ * @LastEditTime: 2022-07-09 23:21:42
  * @FilePath: /about-study/webpack.md
 -->
 
@@ -41,3 +41,4 @@ chunk 有两种形式
 
 1.FriendlyErrorsWebpackPlugin：去除 webpack-dev-server 控制台打印
 2.speed-measure-webpack-plugin：输出 webpack 的构建时间
+3.html-webpack-plugin: 输出 html
