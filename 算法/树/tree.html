@@ -48,28 +48,69 @@
             insertNode(this.root, newNode);
           }
         }
-				
+
         insertBucket(data) {
           data.forEach((item) => {
             this.insert(item);
           });
         }
-				
-				inOrderTraverse(fn) {
-					
-				}
+
+        // 前序遍历 根左右 递归形式
+        preOrderTraverse(root) {
+          if (root == null) return [];
+          const result = [];
+          const preOrder = (node) => {
+            if (node === null) return;
+            result.push(node.key);
+            preOrder(node.left);
+            preOrder(node.right);
+          };
+          preOrder(root);
+          return result;
+        }
+        // 中序遍历
+        inOrderTraverse(root) {
+          if (root == null) return [];
+          const result = [];
+          const preOrder = (node) => {
+            if (node === null) return;
+            preOrder(node.left);
+            result.push(node.key);
+            preOrder(node.right);
+          };
+          preOrder(root);
+          return result;
+        }
+
+        // 后序遍历
+        postOrderTraverse(root) {
+          if (root == null) return [];
+          const result = [];
+          const preOrder = (node) => {
+            if (node === null) return;
+            preOrder(node.left);
+            preOrder(node.right);
+            result.push(node.key);
+          };
+          preOrder(root);
+          return result;
+        }
       }
 
-      const newTree = new BinaryTree([8,3,6,4,9,11,2,5,7]);
-			let arr1 = []
-			// newTree.inOrderTraverse((key) => {
-			// 	console.log('---')
-			// 	arr1.push(key);
-			// })
-			console.log(newTree.root)
+      const newTree = new BinaryTree([8, 3, 6, 4, 9, 11, 2, 5, 7]);
+      const preResult = newTree.preOrderTraverse(newTree.root);
+      console.log(preResult);
+
+      const inResult = newTree.inOrderTraverse(newTree.root);
+      console.log(inResult);
+
+      const postResult = newTree.postOrderTraverse(newTree.root);
+      console.log(postResult);
+
+      console.log(newTree.root);
       // console.log(newTree);
-			
-			/*
+
+      /*
 								8
 						3      9
 					2		6	     11
