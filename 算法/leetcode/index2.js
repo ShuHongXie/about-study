@@ -47,7 +47,35 @@ console.log(addTwoNumbers([0], [0]));
 
  */
 
-function ListNode(val, next) {
-  this.val = val === undefined ? 0 : val;
-  this.next = next === undefined ? null : next;
-}
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} l1
+ * @param {ListNode} l2
+ * @return {ListNode}
+ */
+var addTwoNumbers = function (l1, l2) {
+  var isOver = 0;
+  var result;
+  while (l1 || l2) {
+    l1.val = l1.val || 0;
+    l2.val = l2.val || 0;
+    if (result) {
+      result.next = new ListNode((l1.val + l2.val + isOver) % 10);
+    } else {
+      result = new ListNode((l1.val + l2.val + isOver) % 10);
+    }
+    isOver = l1.val + l2.val + isOver >= 10 ? 1 : 0;
+    l1 = l1.next;
+    l2 = l2.next;
+  }
+  if (isOver) {
+    result.next = new ListNode(isOver);
+  }
+  return result;
+};
