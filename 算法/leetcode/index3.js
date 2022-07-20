@@ -20,49 +20,34 @@
  * @return {number}
  */
 var lengthOfLongestSubstring = function (s) {
-  var list = [];
-  let num = 1;
   let start = 0;
-  for (var i = 0, len = s.length; i < len; i++) {
-    const initStr = s.substring(start, start + num);
-    const cutStr = s.substring(start + num, s.length);
-    const arr = initStr.split("");
-    // console.log(initStr, cutStr);
-    let flag = 0;
-    if (cutStr.length) {
-      arr.forEach((key, idx) => {
-        let index = cutStr.indexOf(key);
-        console.log(index, key, initStr, cutStr);
-        if (index === 0) {
-          start += idx + 1;
-          flag++;
-          num = 1;
-          list.push(initStr.length);
-        }
-      });
-    } else {
-      list.push(initStr.length);
+  let arr = [];
+  let str = "";
+  for (let i = 0, len = s.length; i < len; i++) {
+    str = s[i];
+    for (let j = i + 1; j < len; j++) {
+      if (str.indexOf(s[j]) !== -1 || j < arr.length) {
+        break;
+      }
+      if (s[i] === s[j]) {
+        break;
+      } else {
+        str += s[j];
+      }
     }
-
-    if (flag === 0) {
-      num++;
-    }
-    if (i === len - 1) {
-      list = list.length ? list : [s.length];
-    }
-    // console.log(list);
-    if (!cutStr) break;
+    // console.log(str);
+    arr.push(str.length);
+    str = "";
   }
-  // console.log(list);
-  return list.length ? Math.max.call(this, ...list) : list.length;
+  return arr.length ? Math.max.call(this, ...arr) : arr.length;
 };
 
-// console.log(lengthOfLongestSubstring("pwwkew"));
-// console.log(lengthOfLongestSubstring("abcabcbb"));
-// console.log(lengthOfLongestSubstring("bbb"));
-console.log(lengthOfLongestSubstring("asdvd"));
-// console.log(lengthOfLongestSubstring("aab"));
-// console.log(lengthOfLongestSubstring(""));
-// console.log(lengthOfLongestSubstring(" "));
-// console.log(lengthOfLongestSubstring("dvdf"));
-// console.log(" ".length);
+console.log(lengthOfLongestSubstring("pwwkew"));
+console.log(lengthOfLongestSubstring("abcabcbb"));
+console.log(lengthOfLongestSubstring("bbb"));
+console.log(lengthOfLongestSubstring("pwwkew"));
+console.log(lengthOfLongestSubstring("aab"));
+console.log(lengthOfLongestSubstring(""));
+console.log(lengthOfLongestSubstring(" "));
+console.log(lengthOfLongestSubstring("dvdf"));
+console.log(" ".length);
