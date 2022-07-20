@@ -54,6 +54,44 @@ console.log(addTwoNumbers([0], [0]));
  *     this.next = (next===undefined ? null : next)
  * }
  */
+// 初始化链表
+class ListNode {
+  constructor(val, next) {
+    this.val = val === undefined ? 0 : val;
+    this.next = next === undefined ? null : next;
+  }
+}
+const a1 = [9, 9, 9, 9, 9, 9, 9],
+  a2 = [9, 9, 9, 9];
+// 数组转链表
+let l1, l2;
+let next1, next2;
+for (let i = 0; i < a1.length; i++) {
+  if (!l1) {
+    l1 = new ListNode(a1[i], null);
+    next1 = l1;
+  } else {
+    let nextNode = new ListNode(a1[i], null);
+    while (next1.next) {
+      next1 = next1.next;
+    }
+    next1.next = nextNode;
+  }
+}
+for (let i = 0; i < a2.length; i++) {
+  if (!l2) {
+    l2 = new ListNode(a2[i], null);
+    next2 = l2;
+  } else {
+    let nextNode = new ListNode(a2[i], null);
+    while (next2.next) {
+      next2 = next2.next;
+    }
+    next2.next = nextNode;
+  }
+}
+console.log(l1, l2);
+// 开始计算
 /**
  * @param {ListNode} l1
  * @param {ListNode} l2
@@ -62,20 +100,30 @@ console.log(addTwoNumbers([0], [0]));
 var addTwoNumbers = function (l1, l2) {
   var isOver = 0;
   var result;
+  var next;
   while (l1 || l2) {
-    l1.val = l1.val || 0;
-    l2.val = l2.val || 0;
+    // console.log("l1=", l1, "l2=", l2);
+    l1 = l1 || new ListNode(0);
+    l2 = l2 || new ListNode(0);
+    // console.log("result", result);
     if (result) {
-      result.next = new ListNode((l1.val + l2.val + isOver) % 10);
+      // console.log((l1.val + l2.val + isOver) % 10);
+      next.next = new ListNode((l1.val + l2.val + isOver) % 10);
+      console.log(next.next.val);
+      next = next.next;
+      console.log(next);
     } else {
       result = new ListNode((l1.val + l2.val + isOver) % 10);
+      next = result;
     }
     isOver = l1.val + l2.val + isOver >= 10 ? 1 : 0;
     l1 = l1.next;
     l2 = l2.next;
   }
   if (isOver) {
-    result.next = new ListNode(isOver);
+    next.next = new ListNode(isOver);
   }
   return result;
 };
+
+console.log(addTwoNumbers(l1, l2));
