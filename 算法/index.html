@@ -1,25 +1,63 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-	</head>
-	<body>
-		<script type="text/javascript">
-			// 100次循环
-			// let sum = 0,
-			// 	n = 100
-			// sum = (n + 1) * n / 2
-			// console.log(sum)
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // 100次循环
+      // let sum = 0,
+      // 	n = 100
+      // sum = (n + 1) * n / 2
+      // console.log(sum)
 
-			// 斐波那契数列
-			function fibonacci(n) {
-				if (n == 1 || n == 2) {
-					return 1
-				};
-				return fibonacci(n - 2) + fibonacci(n - 1);
-			}
-			console.log(fibonacci(10))
-		</script>
-	</body>
+      // 斐波那契数列
+      function fibonacci(n) {
+        if (n == 1 || n == 2) {
+          return 1;
+        }
+        return fibonacci(n - 2) + fibonacci(n - 1);
+      }
+      console.log(fibonacci(10));
+
+      const arr = [3, 1, 4, 6, 5, 2];
+      // 插入排序
+      for (let i = 1; i < arr.length; i++) {
+        let current = arr[i];
+        let j = i - 1;
+        for (; j >= 0; --j) {
+          if (arr[j] > current) {
+            arr[j + 1] = arr[j];
+          } else {
+            break;
+          }
+        }
+        arr[j + 1] = current;
+        console.log(arr);
+      }
+      console.log(arr);
+      console.log("----");
+      // 快速排序(快排) 实质上是运用了二叉分治思想
+      const arr1 = [3, 1, 4, 6, 5, 2];
+      function quickSort(array) {
+        if (array.length <= 1) {
+          return array;
+        }
+        const pivotIndex = Math.floor(array.length / 2);
+        const pivot = array.splice(pivotIndex, 1);
+        const left = [];
+        const right = [];
+        for (let i = 0; i < array.length; i++) {
+          if (array[i] > pivot) {
+            right.push(array[i]);
+          } else {
+            left.push(array[i]);
+          }
+        }
+        return quickSort(left).concat(pivot, ...quickSort(right));
+      }
+      console.log(quickSort(arr1));
+    </script>
+  </body>
 </html>

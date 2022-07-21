@@ -1,8 +1,8 @@
 <!--
  * @Author: 谢树宏
  * @Date: 2022-02-14 09:10:06
- * @LastEditors: 谢树宏
- * @LastEditTime: 2022-02-28 17:33:16
+ * @LastEditors: 谢树宏 384180258@qq.com
+ * @LastEditTime: 2022-07-21
  * @FilePath: /about-study/http缓存.md
 -->
 
@@ -67,6 +67,8 @@ http2.0
 4. HPACK 头部压缩，通讯双方各自 cache 一份 header fields 表，既避免了重复 header 的传输，又减小了需要传输的大小。
 
 ### 三次握手
+
+https://blog.csdn.net/weixin_43901866/article/details/104002207
 
 https://juejin.cn/post/6844903958624878606
 
