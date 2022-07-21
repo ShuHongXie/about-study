@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function Mod() {
+        this.exports = {};
+        // this.init()
+        function func(modul) {
+          const exports = modul.exports;
+          modul.exports = {
+            x: 1,
+          };
+          console.log(exports); // { x: 1} {}
+          exports.name = 1231;
+          console.log(exports); //{ {x: 1} {name: 123}
+        }
+
+        func(this);
+      }
+      // Mod.prototype.init = function () {
+      //   function func(modul) {
+      //     window.ok = modul;
+      //     const exports = modul.exports;
+      //     console.log("----");
+
+      //     modul.exports = {
+      //       x: 1,
+      //     };
+      //     console.log(exports); // { x: 1} {}
+      //     exports.name = 1231;
+      //     console.log(exports); //{ {x: 1} {name: 123}
+      //   }
+
+      //   func(this);
+      // };
+      Mod.prototype.gets = function () {
+        return this.exports;
+      };
+
+      const m = Mod();
+      // console.log(m.exports === window.ok.exports)
+      console.log(m.gets()); // { x: 1}
+    </script>
+  </body>
+</html>
