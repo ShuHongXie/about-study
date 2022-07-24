@@ -2,7 +2,7 @@
  * @Author: 谢树宏
  * @Date: 2022-02-09 15:39:11
  * @LastEditors: 谢树宏 384180258@qq.com
- * @LastEditTime: 2022-07-22
+ * @LastEditTime: 2022-07-24 19:42:50
  * @FilePath: /about-study/js基础.md
 -->
 
@@ -10,7 +10,7 @@
 
 ### 原型和原型链。
 
-1.  无论什么时候，只要创建一个构造函数，就会创造一个构造函数本身 prototype 属性，prototype 属性指向构造函数相原型对象，原型对象上默认有一个 constructor 属性指回构造函数
+1.  无论什么时候，只要创建一个构造函数，就会创造一个构造函数本身 prototype 属性，prototype 属性指向构造函数的原型对象，原型对象上默认有一个 constructor 属性指回构造函数
 2.  当 new 了一个实例对象之后，每个实例对象都有一个*proto*属性指向构造函数的 prototype 实现继承(即可以访问原型对象的属性和方法)
 3.  Object.create(null)新建的对象是没有**proto**属性的
 4.  原型链查找对象或方法，先在当前实例查找，没有找到就根据*proto*的指向往原型对象上查找，原型对象上如果没有就往原型链的的*proto*上面查看，直到 Object.prototype.\_proto\_ === null 就表明是原型链的终点。

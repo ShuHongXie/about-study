@@ -1,8 +1,8 @@
 <!--
  * @Author: 谢树宏
  * @Date: 2022-02-09 16:00:48
- * @LastEditors: 谢树宏
- * @LastEditTime: 2022-02-17 17:50:50
+ * @LastEditors: 谢树宏 384180258@qq.com
+ * @LastEditTime: 2022-07-24 19:57:06
  * @FilePath: /about-study/OOP/index.html
 -->
 <html>
@@ -43,6 +43,7 @@
         while (true) {
           if (!proto) return false;
           if (proto === prototype) return true;
+          console.log(proto);
           proto = proto.__proto__;
         }
       }
@@ -50,21 +51,39 @@
     </script>
     <script>
       // setimeout实现setInterval
-      let index = 0;
-      let timer = null;
-      function setd() {
-        timer = setTimeout(() => {
-          index++;
-          if (index < 10) {
-            console.log(index);
-            clearTimeout(timer);
-            setd();
-          } else {
-            console.log("到达了");
-          }
-        }, 1000);
+      // let index = 0;
+      // let timer = null;
+      // function setd() {
+      //   timer = setTimeout(() => {
+      //     index++;
+      //     if (index < 10) {
+      //       console.log(index);
+      //       clearTimeout(timer);
+      //       setd();
+      //     } else {
+      //       console.log("到达了");
+      //     }
+      //   }, 1000);
+      // }
+      // setd();
+    </script>
+    <script>
+      const res = function () {
+        console.log();
+      };
+      console.log(res instanceof Function);
+      console.log(res.__proto__);
+      const proto1 = res.__proto__;
+      function testProto(origin) {
+        let proto1 = origin.__proto__;
+        while (true) {
+          console.log();
+          if (!proto1) return false;
+          proto1 = proto1.__proto__;
+          console.log(proto1);
+        }
       }
-      setd();
+      testProto(res);
     </script>
   </body>
 </html>

@@ -1,0 +1,9 @@
+<html>
+  <body>
+    <script>
+      const flatten = (arr) =>
+        arr.reduce((a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []);
+      console.log(flatten([[4, [5, 6]], 1, 2, 3, [4, [5, 6]]], 2));
+    </script>
+  </body>
+</html>
