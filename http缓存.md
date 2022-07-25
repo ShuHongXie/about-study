@@ -2,7 +2,7 @@
  * @Author: 谢树宏
  * @Date: 2022-02-14 09:10:06
  * @LastEditors: 谢树宏 384180258@qq.com
- * @LastEditTime: 2022-07-24 22:40:27
+ * @LastEditTime: 2022-07-25
  * @FilePath: /about-study/http缓存.md
 -->
 
@@ -125,13 +125,19 @@ https://juejin.cn/post/6844903958624878606
 2. 完整性校验
 3. 身份验证
 
+https://juejin.cn/post/6844904127420432391#heading-5
+
 #### 对称加密和非对称加密搭配使用。数据传输阶段使用对称加密，对称加密的秘钥采用非对称加密
 
-1. ⾸先是 tcp 的三次握⼿建⽴连接
-1. client 发送 random1+⽀持的加密算法集合（clientHello）
-1. server 收到信息，返回选择⼀个加密算法+random2（serverHello）+ 证书+ 确认
-1. clent 验证证书有效性，并⽤ random1+random2 ⽣成 pre-master 通过服务器公钥加密 发送给 server
-1. server 收到 premaster，根据约定的加密算法对 random1+random2+premaster（解密）⽣成 master-s ecret，然后发送预定成功
-1. client 收到⽣成同样的 master-secert，对称加密秘钥传输完毕
+0. ⾸先是 tcp 的三次握⼿建⽴连接
+1. 用户在浏览器发起 HTTPS 请求（如 juejin.cn），默认使用服务端的 443 端口进行连接；
+2. HTTPS 需要使用一套 CA 数字证书，证书内会附带一个公钥 Pub，而与之对应的私钥 Private 保留在服务端不公开；
+3. 服务端收到请求，返回配置好的包含公钥 Pub 的证书给客户端；
+4. 客户端收到证书，校验合法性，主要包括是否在有效期内、证书的域名与请求的域名是否匹配，上一级证书是否有效（递归判断，直到判断到系统内置或浏览器配置好的根证书），如果不通过，则显示 HTTPS 警告信息，如果通过则继续；
+5. 客户端生成一个用于对称加密的随机 Key，并用证书内的公钥 Pub 进行加密，发送给服务端；
+   服务端收到随机 Key 的密文，使用与公钥 Pub 配对的私钥 Private 进行解密，得到客户端真正想发送的随机 Key；
+6. 服务端使用客户端发送过来的随机 Key 对要传输的 HTTP 数据进行对称加密，将密文返回客户端；
+   客户端使用随机 Key 对称解密密文，得到 HTTP 数据明文；
+   后续 HTTPS 请求使用之前交换好的随机 Key 进行对称加解密。
 
 #### 引入 CA 数字证书解 DNS 劫持问题
