@@ -2,7 +2,7 @@
  * @Author: 谢树宏
  * @Date: 2022-02-09 16:00:48
  * @LastEditors: 谢树宏 384180258@qq.com
- * @LastEditTime: 2022-07-24 19:57:06
+ * @LastEditTime: 2022-07-26
  * @FilePath: /about-study/OOP/index.html
 -->
 <html>
@@ -72,18 +72,18 @@
         console.log();
       };
       console.log(res instanceof Function);
-      console.log(res.__proto__);
-      const proto1 = res.__proto__;
-      function testProto(origin) {
-        let proto1 = origin.__proto__;
-        while (true) {
-          console.log();
-          if (!proto1) return false;
-          proto1 = proto1.__proto__;
-          console.log(proto1);
-        }
-      }
-      testProto(res);
+      console.log(res.__proto__.__proto__);
+      // const proto1 = res.__proto__;
+      // function testProto(origin) {
+      //   let proto1 = origin.__proto__;
+      //   while (true) {
+      //     console.log();
+      //     if (!proto1) return false;
+      //     proto1 = proto1.__proto__;
+      //     console.log(proto1);
+      //   }
+      // }
+      // testProto(res);
     </script>
   </body>
 </html>

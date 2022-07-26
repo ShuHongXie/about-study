@@ -2,7 +2,7 @@
  * @Author: 谢树宏
  * @Date: 2022-02-08 10:24:32
  * @LastEditors: 谢树宏 384180258@qq.com
- * @LastEditTime: 2022-07-20
+ * @LastEditTime: 2022-07-26
  * @FilePath: /about-study/webpack.md
 -->
 
@@ -17,7 +17,7 @@
    2. thread-loader 开启多进程打包，
    3. 缩小 loader 的打包范围
    4. 利用缓存充分利用缓存提升二次构建速度 babel-loader， cache-loader 等内置了缓存功能
-   5. webpack5 持久化缓存,将首次构建的过程和结果数据久化保存到本地文件系统，在下次执行构建时跳过解析、链接、编译，复用上次的对象，下次编译时直接对比每个文件的内容哈希或时间戳，未发生变化的文件跳过编译操作，直接使用缓存副本，减少重复计算；发生变更的模块则重新执行编译流程。
+   5. webpack5 持久化缓存 cache,将首次构建的过程和结果数据久化保存到本地文件系统，在下次执行构建时跳过解析、链接、编译，复用上次的对象，下次编译时直接对比每个文件的内容哈希或时间戳，未发生变化的文件跳过编译操作，直接使用缓存副本，减少重复计算；发生变更的模块则重新执行编译流程。
    6. 约束 loader 的执行范围，babel-loader、eslint-loader、vue-loader 等，需要反复执行代码到 AST，AST 到代码的转换。使用 module.rules.include、module.rules.exclude 等配置项，限定 Loader 的执行范围 —— 通常可以排除 node_module 文件夹。
    7. noParse 跳过文件编译，缺点：1.由于跳过了 ast 的分析，所以无法发现文件中可能存在的语法错误 2.由于跳过了依赖分析，所以文件中最好不要依赖 import/export/require/define 等语法 3.由于跳过了内容分析，也就无法 tree-shaking
    8. 跳过 TS 类型检查，ts 类型检查涉及 AST 解析、遍历以及其它非常消耗 CPU 的操作。1.可以借助编译器 2.使用 fork-ts-checker-webpack-plugin 插件将类型检查能力剥离到 子进程 执行.
