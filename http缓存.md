@@ -2,7 +2,7 @@
  * @Author: 谢树宏
  * @Date: 2022-02-14 09:10:06
  * @LastEditors: 谢树宏 384180258@qq.com
- * @LastEditTime: 2022-07-25
+ * @LastEditTime: 2022-07-30 21:55:28
  * @FilePath: /about-study/http缓存.md
 -->
 
@@ -141,3 +141,5 @@ https://juejin.cn/post/6844904127420432391#heading-5
    后续 HTTPS 请求使用之前交换好的随机 Key 进行对称加解密。
 
 #### 引入 CA 数字证书解 DNS 劫持问题
+
+增加
