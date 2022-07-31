@@ -2,7 +2,7 @@
  * @Author: 谢树宏
  * @Date: 2022-02-09 15:39:11
  * @LastEditors: 谢树宏 384180258@qq.com
- * @LastEditTime: 2022-07-26
+ * @LastEditTime: 2022-07-31 22:40:59
  * @FilePath: /about-study/js基础.md
 -->
 
@@ -93,8 +93,6 @@ function test() {
 2. 并发回收，可以再主线程执行空闲时，执行垃圾回收工作
 
 具体看https://juejin.cn/post/6981588276356317214#heading-6
-
-## 事件模型
 
 ### 事件流
 
