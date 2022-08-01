@@ -2,7 +2,7 @@
  * @Author: 谢树宏
  * @Date: 2022-02-09 15:39:11
  * @LastEditors: 谢树宏 384180258@qq.com
- * @LastEditTime: 2022-07-31 22:40:59
+ * @LastEditTime: 2022-08-01 22:53:48
  * @FilePath: /about-study/js基础.md
 -->
 
@@ -95,6 +95,8 @@ function test() {
 具体看https://juejin.cn/post/6981588276356317214#heading-6
 
 ### 事件流
+
+测试
 
 事件流顺序 事件捕获阶段 => 处于目标阶段 => 事件冒泡阶段
 
