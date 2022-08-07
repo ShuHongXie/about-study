@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>vw大屏幕适配</title>
+    <style>
+      body {
+        margin: 0;
+        display: flex;
+        align-items: center;
+      }
+      #b1 {
+        width: 100vw;
+        height: 60vw;
+        border: 1px solid red;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="b1">231</div>
+    <script>
+      function init(screenRatioByDesign = 16 / 9) {
+        let docEle = document.documentElement;
+        console.log(
+          screenRatioByDesign,
+          docEle.clientWidth / docEle.clientHeight
+        );
+        function setHtmlFontSize() {
+          var screenRatio = docEle.clientWidth / docEle.clientHeight;
+          var fontSize =
+            ((screenRatio > screenRatioByDesign
+              ? screenRatioByDesign / screenRatio
+              : 1) *
+              docEle.clientWidth) /
+            10;
+          docEle.style.fontSize = fontSize.toFixed(3) + "px";
+        }
+        console.log("123");
+        setHtmlFontSize();
+        window.addEventListener("resize", setHtmlFontSize);
+      }
+      init();
+    </script>
+  </body>
+</html>

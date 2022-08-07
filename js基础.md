@@ -2,7 +2,7 @@
  * @Author: 谢树宏
  * @Date: 2022-02-09 15:39:11
  * @LastEditors: 谢树宏 384180258@qq.com
- * @LastEditTime: 2022-08-06 23:09:10
+ * @LastEditTime: 2022-08-07 22:15:56
  * @FilePath: /about-study/js基础.md
 -->
 
@@ -99,3 +99,7 @@ function test() {
 事件流顺序 事件捕获阶段 => 处于目标阶段 => 事件冒泡阶段
 
 stopPropagation() 取消冒泡
+
+### jsBridge 桥接
+
+https://blog.csdn.net/weixin_41612150/article/details/88971477
