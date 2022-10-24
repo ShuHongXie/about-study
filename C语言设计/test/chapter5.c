@@ -12,14 +12,38 @@ int fibonacci(int n)
   }
 }
 
-// 求100以内斐波那契数列
+// 练习输入素数
 int main()
 {
-  int n;
-  scanf("%d", &n);
-  printf("%d\n", fibonacci(n));
+  int i;
+  char c;
+  for (i = 1; (c = getchar() != '\n'); i += c)
+    ;
   return 0;
 }
+
+// 求100以内斐波那契数列
+// int main()
+// {
+//   int n;
+//   scanf("%d", &n);
+//   printf("%d\n", fibonacci(n));
+//   return 0;
+// }
+
+// for循环缺少语句测试
+// int main()
+// {
+//   int sum = 0, i;
+//   for (i = 1; i <= 100;)
+//   {
+//     sum += i;
+//     i++;
+//     printf("%d\n", sum);
+//   }
+//   printf("%d", sum);
+//   return 0;
+// }
 
 // 求1到100相加
 // for循环
