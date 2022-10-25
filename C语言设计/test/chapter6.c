@@ -34,8 +34,15 @@ int main()
 
 int main()
 {
-  char a[10] = "isme";
-  int len = strlen(a);
-  printf("%d\n", len);
+  // char a[] = "waitwait";
+  // int len = strlen(a);
+  // printf("%d\n", strlen(a));
+
+  char str1[30] = "people republic of ";
+  char str2[] = "chaina";
+  // 字符串合并
+  printf("%s\n", strcat(str1, str2));
+  // 字符串比较
+  printf("%d\n", strcmp(str1, str2));
   return 0;
 }

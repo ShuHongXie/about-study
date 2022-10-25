@@ -2,6 +2,8 @@
   "C_Cpp.errorSquiggles": "Disabled",
   "files.associations": {
     "*.vue": "vue",
-    "__locale": "c"
+    "__locale": "c",
+    "string": "c",
+    "iosfwd": "c"
   }
 }
