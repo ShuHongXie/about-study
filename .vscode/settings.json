@@ -4,6 +4,7 @@
     "*.vue": "vue",
     "__locale": "c",
     "string": "c",
-    "iosfwd": "c"
+    "iosfwd": "c",
+    "stdio.h": "c"
   }
 }
