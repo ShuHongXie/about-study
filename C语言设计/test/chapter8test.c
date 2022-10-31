@@ -91,27 +91,54 @@
 // 指针应用练习-数组改变 -------------------end
 
 // 指针应用练习-字符复制1 -------------------start
+// int main()
+// {
+//   char a[] = "i am a boy.", b[20];
+//   char *p1 = a, *p2 = b;
+//   // 值表示
+//   // for (int i = 0; *(a + i) != '\0'; i++)
+//   // {
+//   //   *(b + i) = *(a + i);
+//   //   printf("%c\n", *(a + i));
+//   // }
+//   // 指针表示
+//   for (; *p1 != '\0'; p1++, p2++)
+//   {
+//     *p2 = *p1;
+//     // printf("%c", *p2);
+//   }
+//   *p2 = '\0';
+//   for (int i = 0; b[i] != '\0'; i++)
+//   {
+//     printf("%c", b[i]);
+//   }
+//   printf("\n");
+// }
+// 指针应用练习-字符复制2= -------------------end
+
+// 有两个字符串，字符串a为I am a teacher，字符串b的内容为you are a student
+// 要求把字符串b连接到字符串a的后面，即字符串a的内容为I am a teacher。You are a student
 int main()
 {
-  char a[] = "i am a boy.", b[20];
+  void link_string(char *arr1, char *arr2);
+  char a[40] = "I am a teacher.";
+  char b[] = "you are a student";
   char *p1 = a, *p2 = b;
-  // 值表示
-  // for (int i = 0; *(a + i) != '\0'; i++)
-  // {
-  //   *(b + i) = *(a + i);
-  //   printf("%c\n", *(a + i));
-  // }
-  // 指针表示
-  for (; *p1 != '\0'; p1++, p2++)
-  {
-    *p2 = *p1;
-    // printf("%c", *p2);
-  }
-  *p2 = '\0';
-  for (int i = 0; b[i] != '\0'; i++)
-  {
-    printf("%c", b[i]);
-  }
-  printf("\n");
+  link_string(p1, p2);
+  printf("%s", a);
+  return 0;
 }
-// 指针应用练习-字符复制2= -------------------end
+
+void link_string(char *arr1, char *arr2)
+{
+  int i;
+  for (i = 0; *arr1 != '\0'; i++)
+  {
+    arr1++;
+  }
+  for (; *arr2 != '\0'; arr1++, arr2++)
+  {
+    *arr1 = *arr2;
+  }
+  *arr1 = '\0';
+}
