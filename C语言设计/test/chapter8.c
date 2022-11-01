@@ -204,21 +204,31 @@ void inv(int *x, int n)
 // }
 
 // 字符串复制 指针变量法
+// int main()
+// {
+//   char a[] = "I am a boy.", b[20];
+//   int i, *p1 = a, *p2 = b;
+//   for (; *p1 != '\0'; p1++, p2++)
+//   {
+//     *p2 = *p1;
+//   }
+//   *p2 = '\0';
+//   printf("string a is :%s\n", a);
+//   printf("string a is :");
+//   for (i = 0; b[i] != '\0'; i++)
+//   {
+//     printf("%c", b[i]);
+//   }
+//   printf("\n");
+//   return 0;
+// }
+
+// %s测试
 int main()
 {
-  char a[] = "I am a boy.", b[20];
-  int i, *p1 = a, *p2 = b;
-  for (; *p1 != '\0'; p1++, p2++)
-  {
-    *p2 = *p1;
-  }
-  *p2 = '\0';
-  printf("string a is :%s\n", a);
-  printf("string a is :");
-  for (i = 0; b[i] != '\0'; i++)
-  {
-    printf("%c", b[i]);
-  }
-  printf("\n");
+  char a[10] = "123456789";
+  char *p = a;
+  p = a + 6;
+  printf("%s\n", p);
   return 0;
 }
