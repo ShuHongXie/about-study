@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 // getchar putchar使用
-/*
+
 int main()
 {
   char a, b, c;
@@ -14,7 +14,6 @@ int main()
   putchar('\n');
   return 0;
 }
-*/
 
 // scanf使用
 /*
@@ -38,9 +37,9 @@ int main()
 //   return 0;
 // }
 
-int main()
-{
-  int a = 123, b = 12345;
-  printf("%d,%4d", a, b); // 65535
-  return 0;
-}
+// int main()
+// {
+//   int a = 123, b = 12345;
+//   printf("%d,%4d", a, b); // 65535
+//   return 0;
+// }
