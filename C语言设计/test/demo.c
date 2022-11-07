@@ -2,11 +2,14 @@
 
 int main()
 {
-  int a = 1;
-  int b = 4;
-  int c;
-  c = a / b;
-  printf("%d\n", c);
-
-  return (0);
+  long long sum = 1;
+  int i = 1;
+  for (; i <= 100; i++)
+  {
+    printf("%d,%e", i, sum);
+    sum *= i;
+  }
+  printf("%d\n", sum);
+  printf("%d", 123);
+  return 0;
 }

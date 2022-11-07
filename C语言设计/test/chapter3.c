@@ -1,19 +1,26 @@
 #include <stdio.h>
+#include <math.h>
 
 // getchar putchar使用
 
-int main()
-{
-  char a, b, c;
-  a = getchar();
-  b = getchar();
-  c = getchar();
-  putchar(a);
-  putchar(b);
-  putchar(c);
-  putchar('\n');
-  return 0;
-}
+// int main()
+// {
+//   char a, b, c;
+//   // 形式1
+//   // a = getchar();
+//   // b = getchar();
+//   // c = getchar();
+//   // putchar(a);
+//   // putchar(b);
+//   // putchar(c);
+
+//   // 形式2
+//   putchar(getchar());
+//   putchar(getchar());
+//   putchar(getchar());
+//   putchar('\n');
+//   return 0;
+// }
 
 // scanf使用
 /*
@@ -37,9 +44,19 @@ int main()
 //   return 0;
 // }
 
+int main()
+{
+  int a = 123, b = 12345;
+  printf("%4d,%4d", a, b); // 65535
+  return 0;
+}
+
 // int main()
 // {
-//   int a = 123, b = 12345;
-//   printf("%d,%4d", a, b); // 65535
+//   double a, b, c, s, area;
+//   scanf("%lf,%lf,%lf", &a, &b, &c);
+//   s = (a + b + c) / 2.0;
+//   area = sqrt(s * (s - a) * (s - b) * (s - c));
+//   printf("a   =%7.2f\nb   =%7.2f\nc   =%7.2f\narea=%7.2f\n", a, b, c, area);
 //   return 0;
 // }
