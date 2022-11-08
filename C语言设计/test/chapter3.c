@@ -44,12 +44,12 @@ int main()
 //   return 0;
 // }
 
-int main()
-{
-  int a = 123, b = 12345;
-  printf("%4d,%4d", a, b); // 65535
-  return 0;
-}
+// int main()
+// {
+//   int a = 123, b = 12345;
+//   printf("%4d,%4d", a, b); // 65535
+//   return 0;
+// }
 
 // int main()
 // {
@@ -60,3 +60,15 @@ int main()
 //   printf("a   =%7.2f\nb   =%7.2f\nc   =%7.2f\narea=%7.2f\n", a, b, c, area);
 //   return 0;
 // }
+
+int main()
+{
+  unsigned short a = 65535;
+  short int b = -2;
+  printf("a=%d,%o,%x,%u\n", a, a, a, a);
+  printf("b=%d,%o,%x,%u\n", b, b, b, b);
+  char c[] = "CHINA";
+  printf("%3s,%7.2s,%.4s,%-5.3s\n", c, c, c, c);
+  float f = 123.456;
+  return 0;
+}
