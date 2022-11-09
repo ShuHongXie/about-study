@@ -34,15 +34,27 @@ int main()
 
 int main()
 {
-  // char a[] = "waitwait";
-  // int len = strlen(a);
+  // char a[10] = {'H', 'a', 'p', 'p', 'y'};
+  // char b[10] = {"Happy"};
+  // char c[10] = "Happy";
+  // char d[10] = {'H', 'a', 'p', 'p', 'y'};
+  // char e[10] = "   ";
   // printf("%d\n", strlen(a));
+  // printf("%d\n", strlen(b));
+  // printf("%d\n", strlen(c));
+  // printf("%d\n", strlen(d));
+  // printf("%d\n", strlen(e));
 
-  char str1[30] = "people republic of ";
-  char str2[] = "chaina";
-  // 字符串合并
-  printf("%s\n", strcat(str1, str2));
-  // 字符串比较
-  printf("%d\n", strcmp(str1, str2));
+  // 判断大小
+  // char a[] = "girl";
+  // char b[] = "goal";
+  // printf("%d\n", strlen(a));
+  // printf("%d\n", strcmp(a, b));
+
+  // puts gets
+  // char a[] = "";
+  // char b[] = "";
+  // gets(a);
+  // puts(a);
   return 0;
 }
