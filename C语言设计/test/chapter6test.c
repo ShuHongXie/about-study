@@ -96,26 +96,27 @@ int main()
   }
   */
 
-  // 有一行电文，按以下规律翻译成密码 A-Z A-z B-Y b-y C-X c-x
-  char upper[26] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  char lower[26] = "abcdefghijklmnopqrstuvwxyz";
-  char example[10] = "U";
+  // 4.有一行电文，按以下规律翻译成密码 A-Z A-z B-Y b-y C-X c-x
+  /*
+  char example[10] = "Umtorhs";
   for (int i = 0; example[i] != '\0'; i++)
   {
-    printf("%d\n", example[i]);
     char str;
     if (example[i] > 64 && example[i] < 91)
     {
-      example[i] = 26 - (example[i] - 64);
-      printf("%d\n1", 26 - (example[i] - 64));
-      printf("%c\n2", example[i]);
+      example[i] = 26 - (example[i] - 64) + 64 + 1;
+      printf("%c-2\n", example[i]);
     }
     else if (example[i] > 96 && example[i] < 123)
     {
-      example[i] = 96 + 26 - example[i] + 64 + 1;
+      example[i] = 26 - (example[i] - 96) + 96 + 1;
     }
   }
   printf("%s\n", example);
+  */
+
+  // 5.编写一个程序，实现strcat功能
+
   return 0;
 }
 
