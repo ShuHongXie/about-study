@@ -99,14 +99,16 @@ int main()
   // 有一行电文，按以下规律翻译成密码 A-Z A-z B-Y b-y C-X c-x
   char upper[26] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   char lower[26] = "abcdefghijklmnopqrstuvwxyz";
-  char example[] = "U";
+  char example[10] = "U";
   for (int i = 0; example[i] != '\0'; i++)
   {
+    printf("%d\n", example[i]);
+    char str;
     if (example[i] > 64 && example[i] < 91)
     {
       example[i] = 26 - (example[i] - 64);
-      printf("%d\n", 26 - (example[i] - 64));
-      printf("%c\n", example[i]);
+      printf("%d\n1", 26 - (example[i] - 64));
+      printf("%c\n2", example[i]);
     }
     else if (example[i] > 96 && example[i] < 123)
     {
