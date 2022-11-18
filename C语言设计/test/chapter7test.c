@@ -12,7 +12,7 @@ int main()
   // minCommonBei();
   // isSuNum();
   // formatArray();
-  stringReserve();
+  // stringReserve();
   return 0;
 }
 
