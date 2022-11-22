@@ -44,21 +44,22 @@
 
 // 指针变量互换 大小调整 函数方式
 // 这里会非常迷惑人
-int main()
-{
-  void swap(int *p1, int *p2);
-  int a, b, *p1, *p2, *p;
-  scanf("%d,%d", &a, &b);
-  p1 = &a;
-  p2 = &b;
-  if (a < b)
-  {
-    swap(p1, p2);
-  }
-  printf("max=%d,min=%d\n", a, b);
-  return 0;
-}
+// int main()
+// {
+//   void swap(int *p1, int *p2);
+//   int a, b, *p1, *p2, *p;
+//   scanf("%d,%d", &a, &b);
+//   p1 = &a;
+//   p2 = &b;
+//   if (a < b)
+//   {
+//     swap(p1, p2);
+//   }
+//   printf("max=%d,min=%d\n", a, b);
+//   return 0;
+// }
 
+/**
 void swap(int *p1, int *p2)
 {
   printf("%d,%d\n", *p1, *p2);
@@ -72,13 +73,16 @@ void swap(int *p1, int *p2)
   // （不生效）交换的形式2 利用指针指向功能 利用指针地址修改
   // 不能通过执行调用函数来改变实参指针变量的值(p1=p2不会生效)，但是
   // 可以改变实参指针变量所指的变量的值(上面的*p1=*p2)
-  // int *temp;
-  // temp = p1;
-  // p1 = p2;
-  // p2 = temp;
+  int *temp;
+  temp = p1;
+  p1 = p2;
+  p2 = temp;
 }
 
+*/
+
 // 数组指针打印
+
 /*
 int main()
 {
@@ -86,14 +90,14 @@ int main()
   int i, *p = a;
   // for (i = 0; i < 10; i++)
   // {
-  // 通过数组名计算数组元素地址，找到元素
+  //   // 通过数组名计算数组元素地址，找到元素
   //   printf("%d\n", a + i);
   //   printf("%d\n", *(a + i));
-  // printf("\n");
+  //   printf("\n");
 
-  // 通过指针变量计算数组元素地址，找到元素
-  //   printf("%d\n", p + i);
-  //   printf("%d\n", *(p + i));
+  //   // 通过指针变量计算数组元素地址，找到元素
+  //   // printf("%d\n", p + i);
+  //   // printf("%d\n", *(p + i));
   // }
   // 用指针变量先后指向各数组元素
   for (; p < (a + 10); p++)
@@ -104,51 +108,65 @@ int main()
   }
   return 0;
 }
+
 */
 
+// 通过指针变量读入数组的10个元素，然后输出这10个元素，p指针循环的位置
 /*
-// p指针循环的位置
 int main()
 {
-  int *p, i, a[10];
+  int *p, i, a[3];
   p = a;
-  for (i = 0; i < 10; i++)
+  for (i = 0; i < 3; i++)
   {
     scanf("%d", p++);
   }
   // 上面经过一轮循环 指针已经到了a[10]了，所以下面继续打印的话 无法知道值是多少
   // 解决方法是下面 p=a 这样p指向的地址就变回了a[0]
-  // p = a;
-  for (i = 0; i < 10; i++, p++)
+  p = a;
+  for (i = 0; i < 3; i++, p++)
   {
     printf("%d\n", *p);
+    printf("%d\n", *(a + i));
   }
   printf("\n");
   return 0;
 }
 */
 
-/*
 // 数组颠倒
-int main()
-{
-  void inv(int x[], int n);
-  int i, a[10] = {3, 7, 9, 11, 0, 6, 7, 5, 4, 2};
-  printf("the original arry:\n");
-  for (i = 0; i < 10; i++)
-  {
-    printf("%d", a[i]);
-  }
-  printf("\n");
-  inv(a, 10);
-  printf("the array has been inverted:\n");
-  for (i = 0; i < 10; i++)
-  {
-    printf("%d", a[i]);
-  }
-  printf("\n");
-  return 0;
-}
+// int main()
+// {
+//   // void inv(int x[], int n);
+//   void inv(int *arr, int n);
+//   int i, a[10] = {3, 7, 9, 11, 0, 6, 7, 5, 4, 2};
+//   printf("the original arry:\n");
+//   for (i = 0; i < 10; i++)
+//   {
+//     printf("%d", a[i]);
+//   }
+//   printf("\n");
+//   inv(a, 10);
+//   printf("the array has been inverted:\n");
+//   for (i = 0; i < 10; i++)
+//   {
+//     printf("%d", a[i]);
+//   }
+//   printf("\n");
+//   return 0;
+// }
+
+// void inv(int *arr, int n)
+// {
+//   int *temp, i, j, m = (n - 1) / 2;
+//   for (i = 0; i < m; i++)
+//   {
+//     j = n - 1 - i;
+//     *temp = *(arr + i);
+//     *(arr + i) = *(arr + j);
+//     *(arr + j) = *temp;
+//   }
+// }
 
 // 版本1
 // void inv(int x[], int n)
@@ -164,21 +182,34 @@ int main()
 // }
 
 // 版本2
-void inv(int *x, int n)
+// void inv(int *x, int n)
+// {
+//   int *p, temp, *i, *j, m = (n - 1) / 2;
+//   i = x;
+//   j = x + n - 1;
+//   p = x + m;
+//   for (; i < p; i++, j--)
+//   {
+//     temp = *j;
+//     *i = *j;
+//     *j = temp;
+//   }
+//   return;
+// }
+
+int main()
 {
-  int *p, temp, *i, *j, m = (n - 1) / 2;
-  i = x;
-  j = x + n - 1;
-  p = x + m;
-  for (; i < p; i++, j--)
-  {
-    temp = *j;
-    *i = *j;
-    *j = temp;
-  }
-  return;
+
+  int p = 1;
+  int *a = &p;
+  int array[3] = {1, 2, 3};
+  int *arr = &array[0];
+  char *string = "i love china";
+  // printf("%c\n", string);
+  // printf("%d\n", arr);
+  printf("%d\n", string);
+  printf("%c\n", *(string));
 }
-*/
 
 // 字符串复制 下标法
 // int main()
