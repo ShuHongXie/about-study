@@ -1,15 +1,27 @@
 #include <stdio.h>
+#include <string.h>
 
-int main()
-{
-  long long sum = 1;
-  int i = 1;
-  for (; i <= 100; i++)
-  {
-    printf("%d,%e", i, sum);
-    sum *= i;
+
+
+int main() {
+  char s[] = "ABCCDA";
+  int k; char c;
+  for (k = 1; (c = s[k]) != '\0'; k++) {
+    printf("%c", c);
+    switch (c){
+      case 'A': 
+        putchar('%'); 
+        continue;
+      case 'B':
+        ++k; 
+        break;
+      default:
+        putchar('*');
+      case 'C':
+        putchar('#'); 
+        continue;
+    }
+    putchar('@');
   }
-  printf("%d\n", sum);
-  printf("%d", 123);
   return 0;
 }
