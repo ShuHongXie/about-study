@@ -202,12 +202,13 @@ int main()
 
   int p = 1;
   int *a = &p;
-  int *arr = {1, 2, 3};
+  int array[3] = {1, 2, 3};
+  int *arr = &array[0];
   char *string = "i love china";
   // printf("%c\n", string);
   // printf("%d\n", arr);
-  printf("%d\n", a);
-  printf("%d\n", *a);
+  printf("%d\n", string);
+  printf("%c\n", *(string));
 }
 
 // 字符串复制 下标法
