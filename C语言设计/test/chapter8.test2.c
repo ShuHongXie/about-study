@@ -7,9 +7,15 @@ void main()
   void orderThreeInteger();
   void orderThreeString();
   void formatFour();
+  void moveMn(int n, int m);
+  void getStringLen();
+  void formatNewStr();
   // orderThreeInteger();
   // orderThreeString();
-  formatFour();
+  // formatFour();
+  // moveMn(6, 2);
+  // getStringLen();
+  formatNewStr();
 }
 
 // 8-1.输入3个整数，按从小到大顺序输出
@@ -114,4 +120,57 @@ void formatMax(int arr[], int max, int min)
       *(arr + 0) = temp;
     }
   }
+}
+
+// 8-4. 有n个整数，使前面各数顺序向后移动m个位置，最后m个数变成前面m个数。
+// 写一函数实现以上功能，在主函数中输入n个整数和输出调整后的n个数。
+void moveMn(int n, int m)
+{
+  printf("%d,%d\n", n, m);
+  printf("请输入数组元素\n");
+  int arr[n];
+  int i;
+  for (i = 0; i < n; i++)
+  {
+    scanf("%d", &arr[i]);
+  }
+  int moveArr[m];
+  for (i = 0; i < m; i++)
+  {
+    *(moveArr + i) = *(arr + n - m + i);
+  }
+  // printf("%d\n", n - m);
+  // printf("-----\n");
+  for (i = n; i > m; i--)
+  {
+    *(arr + i - 1) = *(arr + i - m - 1);
+  }
+  // printf("转移%d个数后的值为\n", m);
+  for (i = 0; i < n; i++)
+  {
+    if (i < m)
+    {
+      *(arr + i) = *(moveArr + i);
+    }
+    printf("%d", *(arr + i));
+  }
+}
+
+// 8-5. 有n个学生围成一排，顺序排号，从第一个学生开始报数(从1到3报数),凡报到3的学生退出圈子，
+// 到最后只留下一名学生，问最后留下来的是第几名
+
+// 8-6，编写一函数，求字符串的长度，在函数中输入字符串，并求其长度
+void getStringLen()
+{
+  char c[100];
+  gets(c);
+  char *p = c;
+  printf("%d", strlen(p));
+}
+
+// 8-7. 字符串a内容为My name is Li jilin，字符串b内容为Mr Zhang HaoLing is very happy.
+// 写一个函数将字符串b中的5-17个字符即Zhang Haoling赋值到字符串a中，取代Li jinlin,输出新的字符串a
+
+void formatNewStr()
+{
 }
