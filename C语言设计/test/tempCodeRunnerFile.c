@@ -1,4 +1,4 @@
-for (i = 0; i < n; i++)
-  // {
-  //   scanf("%d", &arr[i]);
-  // }
+char c[100];
+  // gets(c);
+  // char *p = c;
+  // printf("%d", strlen(p));

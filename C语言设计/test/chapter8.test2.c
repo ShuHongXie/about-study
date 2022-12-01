@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-void main()
+int main()
 {
   void orderThreeInteger();
   void orderThreeString();
@@ -16,6 +16,7 @@ void main()
   // moveMn(6, 2);
   // getStringLen();
   formatNewStr();
+  return 0;
 }
 
 // 8-1.输入3个整数，按从小到大顺序输出
@@ -162,10 +163,10 @@ void moveMn(int n, int m)
 // 8-6，编写一函数，求字符串的长度，在函数中输入字符串，并求其长度
 void getStringLen()
 {
-  char c[100];
-  gets(c);
-  char *p = c;
-  printf("%d", strlen(p));
+  // char c[100];
+  // gets(c);
+  // char *p = c;
+  // printf("%d", strlen(p));
 }
 
 // 8-7. 字符串a内容为My name is Li jilin，字符串b内容为Mr Zhang HaoLing is very happy.
@@ -173,4 +174,54 @@ void getStringLen()
 
 void formatNewStr()
 {
+  char a1[100] = "My name is Li jilin";
+  char a2[100] = "Mr Zhang HaoLing is very happy";
+  char a3[] = "";
+  char *p3 = a3;
+  char *p1 = a1, *p2 = a2;
+  p2 += 3;
+  p1 += 11;
+  int i = 0;
+  /*
+  非指针写法
+  char a3[100] = "";
+  int i, j = 15, k;
+  for (i = 0; *(a2 + i) != '\0'; i++)
+  {
+    if (i > 2 && i < 15)
+    {
+      *(a3 + i - 3) = *(a2 + i);
+    }
+  }
+  for (i = 0; i < 100; i++)
+  {
+    if (i > 10)
+    {
+      printf("%c", *(a3 + i - 11));
+      *(a1 + i) = *(a3 + i - 11);
+    }
+  }
+  */
+  // 指针写法
+  for (; *p2 != '\0'; p2++)
+  {
+    if (i <= 12)
+    {
+      i++;
+      *p3 = *p2;
+      printf("%c", *p3);
+      p3++;
+    }
+  }
+  *p3 = '\0';
+  // p3 = 0;
+  for (; *p1 != '\0'; p1++, p3++)
+  {
+    printf("%c", *p3);
+    *p1 = *p3;
+  }
+  printf("\n");
+  printf("---\n");
+  printf("%s\n", a1);
+  // printf("%c", *(a3));
 }
