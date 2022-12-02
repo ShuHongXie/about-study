@@ -1,4 +1,13 @@
-char c[100];
-  // gets(c);
-  // char *p = c;
-  // printf("%d", strlen(p));
+if (i >= 3 && i <= 16)
+    {
+      *p3 = *p2;
+      if (i == 16)
+      {
+        *p3 = '\0'; // p3表示结束
+        break;
+      }
+      else
+      {
+        p3++;
+      }
+    }

@@ -175,53 +175,44 @@ void getStringLen()
 void formatNewStr()
 {
   char a1[100] = "My name is Li jilin";
-  char a2[100] = "Mr Zhang HaoLing is very happy";
-  char a3[] = "";
-  char *p3 = a3;
+  char a2[] = "Mr Zhang HaoLing is very happy";
+  char a3[20] = "";
   char *p1 = a1, *p2 = a2;
-  p2 += 3;
-  p1 += 11;
+  char *p3 = a3;
   int i = 0;
-  /*
-  非指针写法
-  char a3[100] = "";
-  int i, j = 15, k;
-  for (i = 0; *(a2 + i) != '\0'; i++)
-  {
-    if (i > 2 && i < 15)
-    {
-      *(a3 + i - 3) = *(a2 + i);
-    }
-  }
-  for (i = 0; i < 100; i++)
-  {
-    if (i > 10)
-    {
-      printf("%c", *(a3 + i - 11));
-      *(a1 + i) = *(a3 + i - 11);
-    }
-  }
-  */
   // 指针写法
-  for (; *p2 != '\0'; p2++)
+  for (; *p2 != '\0'; p2++, i++)
   {
-    if (i <= 12)
+
+    if (i >= 3 && i <= 16)
     {
-      i++;
       *p3 = *p2;
-      printf("%c", *p3);
+      if (i == 16)
+      {
+        *p3 = '\0'; // p3表示结束
+        break;
+      }
+      else
+      {
+        p3++;
+      }
+    }
+  }
+  p3 = a3; // 指针指回第一个
+  for (i = 0; i < 100; p1++, i++)
+  {
+    if (i >= 11)
+    {
+      *p1 = *p3;
       p3++;
     }
   }
-  *p3 = '\0';
-  // p3 = 0;
-  for (; *p1 != '\0'; p1++, p3++)
+  p1 = a1;
+  for (; *p1 != '\0'; p1++)
   {
-    printf("%c", *p3);
-    *p1 = *p3;
+    printf("%c", *p1);
   }
   printf("\n");
-  printf("---\n");
-  printf("%s\n", a1);
-  // printf("%c", *(a3));
+  printf("a1=%s\n", a1);
+  printf("a3=%s\n", a3);
 }
