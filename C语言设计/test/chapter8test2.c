@@ -10,16 +10,18 @@ int main()
   void moveMn(int n, int m);
   void getStringLen();
   void formatNewStr();
+  void findTypeFunc();
   // orderThreeInteger();
   // orderThreeString();
   // formatFour();
   // moveMn(6, 2);
   // getStringLen();
-  formatNewStr();
+  // formatNewStr();
+  findTypeFunc();
   return 0;
 }
 
-// 8-1.è¾“å…¥3ä¸ªæ•´æ•°ï¼ŒæŒ‰ä»å°åˆ°å¤§é¡ºåºè¾“å‡º
+// 8-1.ÊäÈë3¸öÕûÊı£¬°´´ÓĞ¡µ½´óË³ĞòÊä³ö
 void orderThreeInteger()
 {
   void sortInt(int *num1, int *num2);
@@ -32,7 +34,7 @@ void orderThreeInteger()
     sortInt(p1, p3);
   if (*p2 > *p3)
     sortInt(p2, p3);
-  printf("æ•´æ•°ä»å°åˆ°å¤§æ’åºä¸º%d,%d,%d", *p1, *p2, *p3);
+  printf("ÕûÊı´ÓĞ¡µ½´óÅÅĞòÎª%d,%d,%d", *p1, *p2, *p3);
 }
 
 void sortInt(int *num1, int *num2)
@@ -43,7 +45,7 @@ void sortInt(int *num1, int *num2)
   *num2 = temp;
 }
 
-// 8-2.è¾“å…¥3ä¸ªå­—ç¬¦ä¸²ï¼ŒæŒ‰ä»å°åˆ°å¤§é¡ºåºè¾“å‡º
+// 8-2.ÊäÈë3¸ö×Ö·û´®£¬°´´ÓĞ¡µ½´óË³ĞòÊä³ö
 void orderThreeString()
 {
   void sortString(char *c1, char *c2);
@@ -57,7 +59,7 @@ void orderThreeString()
     sortString(a1, a3);
   if (strcmp(a2, a3) > 0)
     sortString(a2, a3);
-  printf("å­—ç¬¦ä¸²ä»å°åˆ°å¤§æ’åºä¸º%s,%s,%s", a1, a2, a3);
+  printf("×Ö·û´®´ÓĞ¡µ½´óÅÅĞòÎª%s,%s,%s", a1, a2, a3);
 }
 
 void sortString(char *c1, char *c2)
@@ -68,11 +70,11 @@ void sortString(char *c1, char *c2)
   strcpy(c2, temp);
 }
 
-// 8-3.è¾“å…¥10(è¿™é‡Œåªå†™4ä¸ª)ä¸ªæ•´æ•°ï¼Œå°†å…¶ä¸­æœ€å°çš„æ•°å’Œç¬¬ä¸€ä¸ªæ•°å¯¹æ¢ï¼ŒæŠŠæœ€å¤§çš„æ•°å’Œæœ€åä¸€ä¸ªæ•°å¯¹æ¢
+// 8-3.ÊäÈë10(ÕâÀïÖ»Ğ´4¸ö)¸öÕûÊı£¬½«ÆäÖĞ×îĞ¡µÄÊıºÍµÚÒ»¸öÊı¶Ô»»£¬°Ñ×î´óµÄÊıºÍ×îºóÒ»¸öÊı¶Ô»»
 void formatFour()
 {
   void formatMax(int arr[], int max, int min);
-  printf("è¯·è¾“å…¥4ä¸ªæ•´æ•°");
+  printf("ÇëÊäÈë4¸öÕûÊı");
   int arr[4], i;
   for (i = 0; i < 4; i++)
   {
@@ -81,7 +83,7 @@ void formatFour()
   int max = arr[0];
   int min = arr[0];
   printf("%d,%d", max, min);
-  printf("è¿›å…¥å¾ªç¯é€»è¾‘\n");
+  printf("½øÈëÑ­»·Âß¼­\n");
   formatMax(arr, max, min);
   for (i = 0; i < 4; i++)
   {
@@ -105,7 +107,7 @@ void formatMax(int arr[], int max, int min)
       min = *(arr + i);
     }
   }
-  printf("æœ€å¤§å€¼ä¸º%dï¼Œæœ€å°å€¼ä¸º%d\n", max, min);
+  printf("×î´óÖµÎª%d£¬×îĞ¡ÖµÎª%d\n", max, min);
   for (i = 0; i < 4; i++)
   {
     if (*(arr + i) == max)
@@ -123,12 +125,12 @@ void formatMax(int arr[], int max, int min)
   }
 }
 
-// 8-4. æœ‰nä¸ªæ•´æ•°ï¼Œä½¿å‰é¢å„æ•°é¡ºåºå‘åç§»åŠ¨mä¸ªä½ç½®ï¼Œæœ€åmä¸ªæ•°å˜æˆå‰é¢mä¸ªæ•°ã€‚
-// å†™ä¸€å‡½æ•°å®ç°ä»¥ä¸ŠåŠŸèƒ½ï¼Œåœ¨ä¸»å‡½æ•°ä¸­è¾“å…¥nä¸ªæ•´æ•°å’Œè¾“å‡ºè°ƒæ•´åçš„nä¸ªæ•°ã€‚
+// 8-4. ÓĞn¸öÕûÊı£¬Ê¹Ç°Ãæ¸÷ÊıË³ĞòÏòºóÒÆ¶¯m¸öÎ»ÖÃ£¬×îºóm¸öÊı±ä³ÉÇ°Ãæm¸öÊı¡£
+// Ğ´Ò»º¯ÊıÊµÏÖÒÔÉÏ¹¦ÄÜ£¬ÔÚÖ÷º¯ÊıÖĞÊäÈën¸öÕûÊıºÍÊä³öµ÷ÕûºóµÄn¸öÊı¡£
 void moveMn(int n, int m)
 {
   printf("%d,%d\n", n, m);
-  printf("è¯·è¾“å…¥æ•°ç»„å…ƒç´ \n");
+  printf("ÇëÊäÈëÊı×éÔªËØ\n");
   int arr[n];
   int i;
   for (i = 0; i < n; i++)
@@ -146,7 +148,7 @@ void moveMn(int n, int m)
   {
     *(arr + i - 1) = *(arr + i - m - 1);
   }
-  // printf("è½¬ç§»%dä¸ªæ•°åçš„å€¼ä¸º\n", m);
+  // printf("×ªÒÆ%d¸öÊıºóµÄÖµÎª\n", m);
   for (i = 0; i < n; i++)
   {
     if (i < m)
@@ -157,10 +159,10 @@ void moveMn(int n, int m)
   }
 }
 
-// 8-5. æœ‰nä¸ªå­¦ç”Ÿå›´æˆä¸€æ’ï¼Œé¡ºåºæ’å·ï¼Œä»ç¬¬ä¸€ä¸ªå­¦ç”Ÿå¼€å§‹æŠ¥æ•°(ä»1åˆ°3æŠ¥æ•°),å‡¡æŠ¥åˆ°3çš„å­¦ç”Ÿé€€å‡ºåœˆå­ï¼Œ
-// åˆ°æœ€ååªç•™ä¸‹ä¸€åå­¦ç”Ÿï¼Œé—®æœ€åç•™ä¸‹æ¥çš„æ˜¯ç¬¬å‡ å
+// 8-5. ÓĞn¸öÑ§ÉúÎ§³ÉÒ»ÅÅ£¬Ë³ĞòÅÅºÅ£¬´ÓµÚÒ»¸öÑ§Éú¿ªÊ¼±¨Êı(´Ó1µ½3±¨Êı),·²±¨µ½3µÄÑ§ÉúÍË³öÈ¦×Ó£¬
+// µ½×îºóÖ»ÁôÏÂÒ»ÃûÑ§Éú£¬ÎÊ×îºóÁôÏÂÀ´µÄÊÇµÚ¼¸Ãû
 
-// 8-6ï¼Œç¼–å†™ä¸€å‡½æ•°ï¼Œæ±‚å­—ç¬¦ä¸²çš„é•¿åº¦ï¼Œåœ¨å‡½æ•°ä¸­è¾“å…¥å­—ç¬¦ä¸²ï¼Œå¹¶æ±‚å…¶é•¿åº¦
+// 8-6£¬±àĞ´Ò»º¯Êı£¬Çó×Ö·û´®µÄ³¤¶È£¬ÔÚº¯ÊıÖĞÊäÈë×Ö·û´®£¬²¢ÇóÆä³¤¶È
 void getStringLen()
 {
   // char c[100];
@@ -169,8 +171,8 @@ void getStringLen()
   // printf("%d", strlen(p));
 }
 
-// 8-7. å­—ç¬¦ä¸²aå†…å®¹ä¸ºMy name is Li jilinï¼Œå­—ç¬¦ä¸²bå†…å®¹ä¸ºMr Zhang HaoLing is very happy.
-// å†™ä¸€ä¸ªå‡½æ•°å°†å­—ç¬¦ä¸²bä¸­çš„5-17ä¸ªå­—ç¬¦å³Zhang Haolingèµ‹å€¼åˆ°å­—ç¬¦ä¸²aä¸­ï¼Œå–ä»£Li jinlin,è¾“å‡ºæ–°çš„å­—ç¬¦ä¸²a
+// 8-7. ×Ö·û´®aÄÚÈİÎªMy name is Li jilin£¬×Ö·û´®bÄÚÈİÎªMr Zhang HaoLing is very happy.
+// Ğ´Ò»¸öº¯Êı½«×Ö·û´®bÖĞµÄ5-17¸ö×Ö·û¼´Zhang Haoling¸³Öµµ½×Ö·û´®aÖĞ£¬È¡´úLi jinlin,Êä³öĞÂµÄ×Ö·û´®a
 
 void formatNewStr()
 {
@@ -180,7 +182,7 @@ void formatNewStr()
   char *p1 = a1, *p2 = a2;
   char *p3 = a3;
   int i = 0;
-  // æŒ‡é’ˆå†™æ³•
+  // Ö¸ÕëĞ´·¨
   for (; *p2 != '\0'; p2++, i++)
   {
 
@@ -189,7 +191,7 @@ void formatNewStr()
       *p3 = *p2;
       if (i == 16)
       {
-        *p3 = '\0'; // p3è¡¨ç¤ºç»“æŸ
+        *p3 = '\0'; // p3±íÊ¾½áÊø
         break;
       }
       else
@@ -198,7 +200,7 @@ void formatNewStr()
       }
     }
   }
-  p3 = a3; // æŒ‡é’ˆæŒ‡å›ç¬¬ä¸€ä¸ª
+  p3 = a3; // Ö¸ÕëÖ¸»ØµÚÒ»¸ö
   for (i = 0; i < 100; p1++, i++)
   {
     if (i >= 11)
@@ -215,4 +217,46 @@ void formatNewStr()
   printf("\n");
   printf("a1=%s\n", a1);
   printf("a3=%s\n", a3);
+}
+
+// 8-8.ÊäÈëÒ»ĞĞÎÄ×Ö£¬ÕÒ³öÆäÖĞ´óĞ´×ÖÄ¸£¬Ğ¡Ğ´×ÖÄ¸£¬¿Õ¸ñ£¬Êı×ÖÒÔ¼°ÆäËû×Ö·û¸÷ÓĞ¶àÉÙ
+void findTypeFunc()
+{
+  void findType(char *charlist)
+  {
+    int upperCaseCount = 0;
+    int lowerCaseCount = 0;
+    int spaceCount = 0;
+    int numberCount = 0;
+    int otherCount = 0;
+    for (; *charlist != '\0'; charlist++)
+    {
+      // printf("%d\n", *charlist);
+      if (*charlist == 32)
+      {
+        spaceCount++;
+      }
+      else if (*charlist > 64 && *charlist < 91)
+      {
+        upperCaseCount++;
+      }
+      else if (*charlist > 96 && *charlist < 123)
+      {
+        lowerCaseCount++;
+      }
+      else if (*charlist > 47 && *charlist < 58)
+      {
+        numberCount++;
+      }
+      else
+      {
+        otherCount++;
+      }
+    }
+    printf("µ±Ç°ÊäÈëÎÄ×ÖÖĞ£¬´óĞ´×ÖÄ¸ÓĞ%d¸ö£¬Ğ¡Ğ´×ÖÄ¸ÓĞ%d¸ö£¬¿Õ¸ñÓĞ%d¸ö£¬Êı×ÖÓĞ%d¸ö£¬ÆäËû×Ö·ûÓĞ%d¸ö", upperCaseCount, lowerCaseCount, spaceCount, numberCount, otherCount);
+  }
+  char str[100];
+  gets(str);
+  char *str1 = str;
+  findType(str1);
 }

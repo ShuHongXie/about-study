@@ -2,7 +2,7 @@
 #include <string.h>
 
 // 找出三个字符串中的最大者
-/*
+
 int main()
 {
   char string[20];
@@ -30,8 +30,8 @@ int main()
   printf("最长的是\n%s\n", string);
   return 0;
 }
-*/
 
+/*
 int main()
 {
   // char a[10] = {'H', 'a', 'p', 'p', 'y'};
@@ -58,3 +58,4 @@ int main()
   // puts(a);
   return 0;
 }
+**/
