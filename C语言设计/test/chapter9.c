@@ -3,7 +3,7 @@
 // #include <sys/malloc.h>
 #include <stdlib.h>
 #define N 3
-#define LEN sizeof(struct student)
+// #define LEN sizeof(struct student)
 
 // int main()
 // {
@@ -59,7 +59,7 @@
 //   return 0;
 // }
 
-// ç»“æ„ä½“æ‰“å°
+// ½á¹¹Ìå´òÓ¡
 // int main()
 // {
 //   for (int i = 0; i < 4; i++)
@@ -68,7 +68,7 @@
 //   }
 // }
 
-// ç»“æ„ä½“æ•´å½¢æŒ‡é’ˆ
+// ½á¹¹ÌåÕûĞÎÖ¸Õë
 // int main()
 // {
 //   struct student
@@ -86,11 +86,12 @@
 //   stu_1.sex = 'M';
 //   stu_1.score = 89.5;
 //   printf("No.:%ld\nname:%s\nsex:%c\nscore:%5.lf\n", stu_1.num, stu_1.name, stu_1.sex, stu_1.score);
-//   printf("No.:%ld\nname:%s\nsex:%c\nscore:%5.lf\n", (*p).num, (*p).name, (*p).sex, (*p).score);
+//   // printf("No.:%ld\nname:%s\nsex:%c\nscore:%5.lf\n", (*p).num, (*p).name, (*p).sex, (*p).score);
+//   printf("No.:%ld\nname:%s\nsex:%c\nscore:%5.lf\n", p->num, p->name, p->sex, p->score);
 //   return 0;
 // }
 
-// ç»“æ„ä½“æ•°ç»„æŒ‡é’ˆ
+// ½á¹¹ÌåÊı×éÖ¸Õë
 // int main()
 // {
 //   struct student
@@ -113,7 +114,7 @@
 //   return 0;
 // }
 
-// ç»“æ„ä½“å‡½æ•°æŒ‡é’ˆ
+// ½á¹¹Ìåº¯ÊıÖ¸Õë
 // struct student
 // {
 //   int num;
@@ -136,7 +137,7 @@
 // void input(struct student stu[])
 // {
 //   int i;
-//   printf("è¯·è¾“å…¥å„å­¦ç”Ÿçš„ä¿¡æ¯ï¼šå­¦å·ï¼Œä¿¡å·ï¼Œä¸‰é—¨æˆç»©:\n");
+//   printf("ÇëÊäÈë¸÷Ñ§ÉúµÄĞÅÏ¢£ºÑ§ºÅ£¬ĞÅºÅ£¬ÈıÃÅ³É¼¨:\n");
 //   for (i = 0; i < N; i++)
 //   {
 //     scanf("%d %s %f %f %f", &stu[i].num, &stu[i].name, &stu[i].score[0], &stu[i].score[1], &stu[i].score[2]);
@@ -159,11 +160,11 @@
 
 // void print(struct student stud)
 // {
-//   printf("\n æˆç»©æœ€é«˜çš„å­¦ç”Ÿæ˜¯: \n");
+//   printf("\n ³É¼¨×î¸ßµÄÑ§ÉúÊÇ: \n");
 //   printf("%s", stud.name);
 // }
 
-// ç»“æ„ä½“é™æ€é“¾è¡¨è¡¨ç¤º
+// ½á¹¹Ìå¾²Ì¬Á´±í±íÊ¾
 // struct student
 // {
 //   int num;
@@ -194,29 +195,29 @@
 //   return 0;
 // }
 
-// ç»“æ„ä½“åŠ¨æ€é“¾è¡¨æ˜¾ç¤º(å¼€è¾ŸåŠ¨æ€ç©ºé—´)
+// ½á¹¹Ìå¶¯Ì¬Á´±íÏÔÊ¾(¿ª±Ù¶¯Ì¬¿Õ¼ä)
 
-struct student
-{
-  int num;
-  float score;
-  struct student *next;
-};
+// struct student
+// {
+//   int num;
+//   float score;
+//   struct student *next;
+// };
 
-int main()
-{
-  struct student *head, *p;
-  // å»ºç«‹é“¾è¡¨
-  head = p = (struct student)malloc(LEN); // å¼€è¾Ÿä¸€ä¸ªæ–°å•å…ƒï¼Œè®©på’ŒheadæŒ‡å‘å®ƒ
-  scanf("%d, %f", &p->num, &p->score);    // è¾“å…¥ç¬¬ä¸€ä¸ªç»“ç‚¹çš„æ•°æ®
-  p = (struct student *)malloc(LEN);      // å¼€è¾Ÿç¬¬äºŒä¸ªæ–°å•å…ƒï¼Œå¹¶è®©PæŒ‡å‘ä»–
-  scanf("%d,%f", &p->num, &p->score);     // è¾“å…¥ç¬¬äºŒä¸ªç»“ç‚¹çš„æ•°æ®
-  head->next = p;                         // ä½¿ç¬¬1ä¸ªç»“ç‚¹ä¸­çš„nextæˆå‘˜æŒ‡å‘ç¬¬äºŒä¸ªç»“ç‚¹
-  p->next = NULL;                         // ä½¿ç¬¬2ä¸ªç»“ç‚¹ä¸­çš„nextæˆå‘˜ä¸æŒ‡å‘ä»»ä½•å¯¹è±¡
-  // è¾“å‡ºä¸¤ä¸ªç»“ç‚¹ä¸­çš„æ•°æ®
-  p = head;
-  printf("\nç»“ç‚¹1ï¼š%d,%6.2f\n", p->num, p->score);
-  p = p->next;
-  printf("ç»“ç‚¹2ï¼š%d,%6.2f\n", p->num, p->score);
-  return 0;
-}
+// int main()
+// {
+//   struct student *head, *p;
+//   // ½¨Á¢Á´±í
+//   head = p = (struct student)malloc(LEN); // ¿ª±ÙÒ»¸öĞÂµ¥Ôª£¬ÈÃpºÍheadÖ¸ÏòËü
+//   scanf("%d, %f", &p->num, &p->score);    // ÊäÈëµÚÒ»¸ö½áµãµÄÊı¾İ
+//   p = (struct student *)malloc(LEN);      // ¿ª±ÙµÚ¶ş¸öĞÂµ¥Ôª£¬²¢ÈÃPÖ¸ÏòËû
+//   scanf("%d,%f", &p->num, &p->score);     // ÊäÈëµÚ¶ş¸ö½áµãµÄÊı¾İ
+//   head->next = p;                         // Ê¹µÚ1¸ö½áµãÖĞµÄnext³ÉÔ±Ö¸ÏòµÚ¶ş¸ö½áµã
+//   p->next = NULL;                         // Ê¹µÚ2¸ö½áµãÖĞµÄnext³ÉÔ±²»Ö¸ÏòÈÎºÎ¶ÔÏó
+//   // Êä³öÁ½¸ö½áµãÖĞµÄÊı¾İ
+//   p = head;
+//   printf("\n½áµã1£º%d,%6.2f\n", p->num, p->score);
+//   p = p->next;
+//   printf("½áµã2£º%d,%6.2f\n", p->num, p->score);
+//   return 0;
+// }
