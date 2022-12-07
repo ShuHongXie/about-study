@@ -47,14 +47,18 @@ BookNode *initList_R(BookNode *l, int n)
   l = (BookNode *)malloc(sizeof(BookNode));
   l->next = NULL;
   BookNode *node;
+  BookNode *firstNode = l;
   for (int i = 0; i < n; ++i)
   {
     node = (BookNode *)malloc(sizeof(BookNode));
     node->data = i + 1;
-    node->next = NULL;
+    // node->next = NULL;
     l->next = node;
     l = node;
   }
+  l->next = NULL;
+  // 指针指回去
+  l = firstNode;
   return l;
 }
 
