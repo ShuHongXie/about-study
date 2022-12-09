@@ -3,6 +3,7 @@
 #define MAXSIZE 100
 
 // 链栈的表示和实现
+// 对于所有结构体指针，只要结构体传入后参数的位置变了，就必须返回结构体，不然会被回收
 typedef struct Node
 {
   int data; // 变成链表之后 这里只放单个数值，不再存放数组，所以可以不用指针
@@ -20,9 +21,9 @@ SqStack *intStack(SqStack *s)
 }
 
 // 入栈
-void push(SqStack *s, int e)
+SqStack *push(SqStack *s, int e)
 {
-  p = (SqStack *)malloc(sizeof(SqStack));
+  SqStack *p = (SqStack *)malloc(sizeof(SqStack));
   if (!p)
   {
     printf("空间申请失败");
@@ -30,8 +31,8 @@ void push(SqStack *s, int e)
   p->data = e;
   p->next = s;
   s = p;
-  printf("%d\n", s->data);
-  return;
+  // printf("%d\n", s->data);
+  return s;
 }
 
 // 出栈
@@ -63,7 +64,7 @@ void print(SqStack *s)
 {
   printf("进入打印逻辑\n");
   p = s;
-  if (p)
+  while (p->next)
   {
     printf("%d\n", p->data);
     p = p->next;
@@ -71,13 +72,16 @@ void print(SqStack *s)
   return;
 }
 
+void traverseList(SqStack *s)
+{
+}
+
 int main()
 {
   SqStack *stack;
   stack = intStack(stack);
-  push(stack, 2);
-  push(stack, 3);
-  // getTopElem(stack);
+  stack = push(stack, 2);
+  stack = push(stack, 3);
   print(stack);
   return 0;
 }
