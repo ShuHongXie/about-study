@@ -1,8 +1,8 @@
 <!--
  * @Author: 谢树宏
  * @Date: 2022-02-14 14:02:43
- * @LastEditors: 谢树宏
- * @LastEditTime: 2022-02-15 16:53:22
+ * @LastEditors: chl123-eng 1326090238@qq.com
+ * @LastEditTime: 2023-04-10 17:08:44
  * @FilePath: /about-study/vue.md
 -->
 
@@ -16,7 +16,7 @@
 
 ### 依赖收集
 
-把数据传入 data 之中，vue 用 object.definedProperty 遍历属性，转换成 getter 和 setter，每个属性都配置一个消息订阅器 dep。当 render 函数渲染时，会读取到当前的属性，触发属性上 dep 的 depend 方法，把当前的 dep 当如 watcher 的 depList 里面，同事 dep 也把当前 watcher 加入内部的 watcher 队列，当属性更新时调用 dep 内部 watcher 队列里面每一个 watcher 的 update 方法,重新执行一遍 render 更新 dom
+把数据传入 data 之中，vue 用 object.definedProperty 遍历属性，转换成 getter 和 setter，每个属性都配置一个消息订阅器 dep。当 render 函数渲染时，会读取到当前的属性，触发属性上 dep 的 depend 方法，把当前的 dep 当如 watcher 的 depList 里面，同时 dep 也把当前 watcher 加入内部的 watcher 队列，当属性更新时调用 dep 内部 watcher 队列里面每一个 watcher 的 update 方法,重新执行一遍 render 更新 dom
 
 computed 内部实际上也是执行了一个 lazy 形式的 watcher，当配置一个 computed 时，同样会用 object.definedProperty 遍历属性，当 getter 获取时会调用 get 方法把依赖项的 dep 加入当前 watcher 中，把当前 wathcer 加入 dep 的 watcher 队列里面，更新 watcher 的 value 值，返回 value。当依赖项更新是，当前 computed 的 watcher 会被调用，因为是 lazy，所以不进行主动计算，因为依赖项更新时会引起 render 的重新刷新，会重新拿到 computed 的值，自动进行更新
 
