@@ -4,9 +4,10 @@ WeakMap 和 WeakSet 内部的值是弱引用 只要该值没有被外部的其�
 
 Set 和 Map 是强引用，内部的对象和数组会一直引用着，只要当前对象不为 null，就不会被垃圾回收
 
-## Reflect
+## Reflect 作用
 
-Reflect 反射对象，在 Vue3 源码中主要是为了弥补对象代理，如 Object.definedProperty 或 Proxy 对一个不可写且不可配置的属性进行 getter 或 setter 时会抛出 TypeError
+1. Reflect 反射对象，在 Vue3 源码中主要是为了弥补对象代理，如 Object.definedProperty 或 Proxy 对一个不可写且不可配置的属性进行 getter 或 setter 时会抛出 TypeError，Reflect 则不会
+2. this 指向问题，代理对象返回的 this 是 proxy，而不是原本
 
 ```js
 const obj = { name: "鲨鱼辣椒" };
