@@ -41,3 +41,10 @@ watch 内部也是创建了一个 watcher 实例，只不过 get 方法在调用
 > ⾸次进⼊缓存页⾯：beforeRouteEnter --> created --> mounted --> activated --> deactivated
 
 > 再次进⼊缓存页⾯：beforeRouteEnter --> activated --> deactivated
+
+### Vue3 优化点
+
+1. 静态标记：v2 版本 diff 是全量对比，v3 只对有 patchFlag 的节点进行 diff 对比
+2. 静态提升：对不变的 dom 打标记，减少渲染成本
+3. 事件监听缓存：对绑定的事件进行监听缓存
+4. SSR 服务端渲染：Vue 3.0 会将静态标签直接转化为文本，相比 React 先将 jsx 转化为虚拟 DOM，再将虚拟 DOM 转化为 HTML，Vue3 更方便快捷
