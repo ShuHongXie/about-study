@@ -50,8 +50,6 @@ chainWebpack: config => {
 当我信誓旦旦地准备看到绿色打印时，却报了一个 **TypeError: Cannot set properties of undefined (setting 'cdn')**的错误，
 于是，我打印了 args 的值，发现打印出来了一个空的数组。此时我做了一个猜想，重新使用了 HtmlWebpackPlugin 插件，会不会导致原有的配置被清空？
 
-/more
-
 ### 带着疑问解决问题。于是，我看了看 vue-cli4 的源码
 
 ```js

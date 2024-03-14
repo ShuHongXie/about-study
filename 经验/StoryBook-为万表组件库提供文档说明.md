@@ -16,8 +16,6 @@ npx storybook init
 
 > 为你的组件库组件/方法/指令提供全局注册，继承 Vue 实例行为，修改.storybook/preview.js
 
-/more
-
 ```js
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

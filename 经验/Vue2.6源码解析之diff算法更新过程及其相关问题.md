@@ -61,8 +61,6 @@
 
 下面代码会去掉一些非核心的代码
 
-/more
-
 ```js
 // src/core/vdom/patch.js
 function updateChildren(
