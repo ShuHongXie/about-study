@@ -2,10 +2,21 @@
   "C_Cpp.errorSquiggles": "Disabled",
   "files.associations": {
     "*.vue": "vue",
+    "*.env.*": "dotenv",
+    "*.cjson": "jsonc",
+    "*.wxss": "css",
+    "*.wxs": "javascript",
     "__locale": "c",
     "string": "c",
     "iosfwd": "c",
     "stdio.h": "c",
-    "typeinfo": "c"
+    "typeinfo": "c",
+    "ostream": "cpp",
+    "iostream": "cpp",
+    "new": "cpp",
+    "algorithm": "cpp",
+    "chrono": "cpp",
+    "complex": "cpp",
+    "cmath": "cpp"
   }
 }
