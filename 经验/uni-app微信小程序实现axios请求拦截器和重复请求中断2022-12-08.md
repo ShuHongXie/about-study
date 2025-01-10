@@ -7,7 +7,7 @@
 
 没想到 flyio 竟然没有预设重复请求功能，绝望
 
-![](http://www.xiesmallxie.cn/20211208153631.jpeg)
+![](http://blog-1300014307.cos.ap-guangzhou.myqcloud.com//20211208153631.jpeg)
 
 ## 当前目标和处理思路
 
@@ -19,7 +19,7 @@
 
 通过 Promise.then 实现链式的串行调用，因为前置有请求拦截器，后置有响应拦截器，中间插入请求结构体。整体结构如下图
 
-![](http://www.xiesmallxie.cn/20211208153630.png?imageMogr2/thumbnail/!50p)
+![](http://blog-1300014307.cos.ap-guangzhou.myqcloud.com//20211208153630.png?imageMogr2/thumbnail/!50p)
 
 ## 代码细究
 

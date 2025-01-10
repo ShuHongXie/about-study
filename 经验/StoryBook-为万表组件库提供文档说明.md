@@ -12,7 +12,7 @@ npx storybook init
 
 执行之后会在根目录生成**storybook**项目文件，如下图
 
-![](https://www.xiesmallxie.cn/20220708174827.png?imageMogr2/thumbnail/600x300)
+![](https://blog-1300014307.cos.ap-guangzhou.myqcloud.com//20220708174827.png?imageMogr2/thumbnail/600x300)
 
 > 为你的组件库组件/方法/指令提供全局注册，继承 Vue 实例行为，修改.storybook/preview.js
 
@@ -68,7 +68,7 @@ module.exports = {
 
 细心的你在预览的时候可能会看到下面的情况，预览始终不居中
 
-![](https://www.xiesmallxie.cn/20220708174826.png?imageMogr2/thumbnail/600x)
+![](https://blog-1300014307.cos.ap-guangzhou.myqcloud.com//20220708174826.png?imageMogr2/thumbnail/600x)
 
 **增加 preview-body.html**
 

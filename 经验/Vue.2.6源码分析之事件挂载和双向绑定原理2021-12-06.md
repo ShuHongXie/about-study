@@ -121,7 +121,7 @@ function add(
 由上面结合源码可知，在 compiler 编译模板之后生成 ast 语法，生成 ast 语法后会对当前 ast 调用 generate 方法进行一次格式化生成 render 函数，
 在 patch 阶段调用 updateDOMListeners 挂载当前监听方法，下面是我总结出来的事件编译挂载的流程图
 
-![](http://www.xiesmallxie.cn/20211206102405.png)
+![](http://blog-1300014307.cos.ap-guangzhou.myqcloud.com//20211206102405.png)
 
 ## 再来看看如何数据的更新监听
 
@@ -338,7 +338,7 @@ class Watcher {
 
 下面是我自己绘制的流程图，可以通过这张图的调用顺序更简明地了解更新逻辑
 
-![](http://www.xiesmallxie.cn/20211206150549.png)
+![](http://blog-1300014307.cos.ap-guangzhou.myqcloud.com//20211206150549.png)
 
 ## 额外的一些注意点
 

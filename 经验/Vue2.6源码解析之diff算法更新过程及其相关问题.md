@@ -233,24 +233,24 @@ function updateChildren(
 
 下面用一个例子来做一层模拟 更直观地展示，**上方为 oldVnode，下方为 newVnode，key 为内容数字，且唯一**
 
-![](http://www.xiesmallxie.cn/20211026171121.png)
+![](http://blog-1300014307.cos.ap-guangzhou.myqcloud.com//20211026171121.png)
 
 Step1: 新头旧头，新尾旧尾，新头旧尾，新尾旧头对比后，发现并不一致，进入源码中的最后一个 else 内部，进入之后
 oldKeyToIdx 为 undefined，初始化 oldKeyToIdx 的值。因为 newStartVnode 有值，idxInOld = oldKeyToIdx[newStartVnode.key]等于 1，调用 createElement 在 oldStartVnode 前面插入 newStartVnode，newStartIndex++。此时 oldStartIndex：0,oldEndIndex：2，newStartIndex：1，newEndIndex：3
 
-![](http://www.xiesmallxie.cn/20211026171120.png)
+![](http://blog-1300014307.cos.ap-guangzhou.myqcloud.com//20211026171120.png)
 
 Step2: 新头旧头对比后发现都为 1，一致 newStartIndex,oldStartIndex 都+1，当前层不进行复用/排列操作，保存本位。此时 oldStartIndex：1,oldEndIndex：2，newStartIndex：2，newEndIndex：3
 
-![](http://www.xiesmallxie.cn/20211026171120.png)
+![](http://blog-1300014307.cos.ap-guangzhou.myqcloud.com//20211026171120.png)
 
 Step3: 旧尾新头对比后发现都为 3，newStartIndex+1，oldEndIndex-1，此时 oldStartIndex：1,oldEndIndex：1，newStartIndex：3，newEndIndex：3
 
-![](http://www.xiesmallxie.cn/20211026171120.png)
+![](http://blog-1300014307.cos.ap-guangzhou.myqcloud.com//20211026171120.png)
 
 Step3: 头尾相比发现都不一致，进入 else 内部，oldKeyToIdx 数组内部没有第 4 个的值 所以在 newStartIndex 前面插入 4，newStartIdx+1，此时 newStartIndex > newOldIndex,就移除旧数组的 oldStartIdx 到 oldEndIdx 的 vnode，也就是 2，最后返回 2134
-![](http://www.xiesmallxie.cn/20211026171119.png)
-![](http://www.xiesmallxie.cn/20211026171118.png)
+![](http://blog-1300014307.cos.ap-guangzhou.myqcloud.com//20211026171119.png)
+![](http://blog-1300014307.cos.ap-guangzhou.myqcloud.com//20211026171118.png)
 
 从上图源码来看，可以得出，**diff 算法会依照固定的判断同层级 Vnode 的顺序进行头头，尾尾，头尾，尾头的比较不断收缩 4 个定义的下标的位置
 来进行 dom 的重排和复用操作**
@@ -283,7 +283,7 @@ children: Array(2)
 
 由上可知，key 是不变的，但是实际上 dom 内容已经变了。这就会导致在头头对比之中因为双方 key 一致，从而判断为同个 vnode，会使 newStartIdx 和 oldStartIndex 一致向右进 1, 最后 newStarteIndex > newEndIndex, 导致 oldStartIndex 到 oldEndIndex 之间的 vnode 被删除，所以这才会出现删除的总是最后一项的情况。没有绑定 key 时情况也是如此。具体如下图所示
 
-![](http://www.xiesmallxie.cn/20211026153950.png)
+![](http://blog-1300014307.cos.ap-guangzhou.myqcloud.com//20211026153950.png)
 
 ## 解决第 4 个问题，就地复用在哪里得到体现？
 
