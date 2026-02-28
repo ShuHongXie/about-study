@@ -1,0 +1,41 @@
+<html>
+  <body>
+    <script>
+      // 数组扁平化
+      console.log("-------------------");
+      const flatten = (arr) =>
+        arr.reduce((a, b) => a.concat(Array.isArray(b) ? flatten(b) : b), []);
+      console.log(flatten([[4, [5, 6]], 1, 2, 3, [4, [5, 6]]], 2));
+    </script>
+    <script>
+      // instance
+      // function newInstanceof(value, origin) {
+      //   let proto = value.__proto__;
+      //   let prototype = origin.prototype;
+      //   while (true) {
+      //     if (!proto) return false;
+      //     console.log(proto, prototype);
+      //     if (proto === prototype) return true;
+      //     proto = proto.__proto__;
+      //   }
+      //   console.log(value);
+      //   return value;
+      // }
+      // const arr = [3, 3, 4, 5, 7];
+      // console.log(newInstanceof(arr, Array));
+    </script>
+    <script>
+      console.log("-------------------动态原型");
+      function Person(name, age) {
+        this.name = name;
+        this.age = age;
+        // 方法
+        if (typeof this.sayName !== "function") {
+          Person.prototype.sayName = function () {
+            alert(this.name);
+          };
+        }
+      }
+    </script>
+  </body>
+</html>

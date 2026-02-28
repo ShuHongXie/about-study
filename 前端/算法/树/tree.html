@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      class BinaryTree {
+        constructor(tree = []) {
+          this.root = null;
+          this.Node = (key) => {
+            const child = Object.create(null, {});
+            child.key = key;
+            child.left = null;
+            child.right = null;
+            return child;
+          };
+
+          if (Array.isArray(tree)) {
+            this.insertBucket(tree);
+          } else if (typeof tree === "number") {
+            this.insert(tree);
+          }
+        }
+        // 插入，主要还是使用了递归插入
+        insert(data) {
+          let newNode = this.Node(data);
+          const insertNode = (root, newNode) => {
+            // console.log(root, newNode);
+            if (newNode.key < root.key) {
+              if (root.left) {
+                insertNode(root.left, newNode);
+              } else {
+                root.left = newNode;
+              }
+            } else if (newNode.key > root.key) {
+              if (root.right) {
+                insertNode(root.right, newNode);
+              } else {
+                root.right = newNode;
+              }
+            }
+          };
+          if (!this.root) {
+            this.root = newNode;
+          } else {
+            insertNode(this.root, newNode);
+          }
+        }
+
+        insertBucket(data) {
+          data.forEach((item) => {
+            this.insert(item);
+          });
+        }
+
+        // 前序遍历 根左右 递归形式
+        preOrderTraverse(root) {
+          if (root == null) return [];
+          const result = [];
+          const preOrder = (node) => {
+            if (node === null) return;
+            result.push(node.key);
+            preOrder(node.left);
+            preOrder(node.right);
+          };
+          preOrder(root);
+          return result;
+        }
+        // 中序遍历
+        inOrderTraverse(root) {
+          if (root == null) return [];
+          const result = [];
+          const preOrder = (node) => {
+            if (node === null) return;
+            preOrder(node.left);
+            result.push(node.key);
+            preOrder(node.right);
+          };
+          preOrder(root);
+          return result;
+        }
+
+        // 后序遍历
+        postOrderTraverse(root) {
+          if (root == null) return [];
+          const result = [];
+          const preOrder = (node) => {
+            if (node === null) return;
+            preOrder(node.left);
+            preOrder(node.right);
+            result.push(node.key);
+          };
+          preOrder(root);
+          return result;
+        }
+      }
+
+      const newTree = new BinaryTree([8, 3, 6, 4, 9, 11, 2, 5, 7]);
+      const preResult = newTree.preOrderTraverse(newTree.root);
+      console.log(preResult);
+
+      const inResult = newTree.inOrderTraverse(newTree.root);
+      console.log(inResult);
+
+      const postResult = newTree.postOrderTraverse(newTree.root);
+      console.log(postResult);
+
+      console.log(newTree.root);
+      // console.log(newTree);
+
+      /*
+								8
+						3      9
+					2		6	     11
+			      4   7
+			        5
+			*/
+    </script>
+  </body>
+</html>

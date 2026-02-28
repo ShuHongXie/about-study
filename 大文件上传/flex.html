@@ -1,0 +1,27 @@
+<html>
+  <style>
+    /* 父容器：大屏核心容器 */
+    .screen-container {
+      display: flex;
+
+      gap: 10px;
+    }
+    /* 子元素：3个图表模块均分宽度 */
+    .chart-item {
+      flex-grow: 0;
+      flex-shrink: 1;
+      flex-basis: auto;
+      /* flex: 1; */
+      height: 100%;
+      width: 20px;
+      background-color: yellowgreen;
+    }
+  </style>
+  <body>
+    <div class="screen-container">
+      <div class="chart-item">1</div>
+      <div class="chart-item">2</div>
+      <div class="chart-item">3</div>
+    </div>
+  </body>
+</html>

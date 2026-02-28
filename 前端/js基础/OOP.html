@@ -1,0 +1,71 @@
+<!--
+ * @Author: 谢树宏
+ * @Date: 2022-02-09 16:00:48
+ * @LastEditors: 谢树宏 384180258@qq.com
+ * @LastEditTime: 2022-07-26
+ * @FilePath: /about-study/OOP/index.html
+-->
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <script>
+      // Object.create浅拷贝
+      function Person(name) {
+        this.name = name;
+      }
+      Person.prototype.search = function () {
+        console.log(this);
+      };
+      function Teacher(name, subject) {
+        Person.call(this, name);
+        this.subject = subject;
+      }
+
+      Teacher.prototype = Object.create(Person.prototype);
+      Person.prototype.searcho = function () {
+        console.log(this);
+      };
+      // 不修改会导致类型判断出错
+      Teacher.prototype.constructor = Teacher;
+      Teacher.prototype.setName = function () {
+        console.log(this.name);
+      };
+      const std = new Teacher("谢小谢", "化学");
+      console.log(std.__proto__);
+    </script>
+    <script>
+      // 重写instanceof方法
+      function newInstanceof(arg, origin) {
+        let proto = arg.__proto__;
+        let prototype = origin.prototype;
+        while (true) {
+          if (!proto) return false;
+          if (proto === prototype) return true;
+          console.log(proto);
+          proto = proto.__proto__;
+        }
+      }
+      console.log(newInstanceof(std, Function));
+    </script>
+    <script>
+      // setimeout实现setInterval
+      // let index = 0;
+      // let timer = null;
+      // function setd() {
+      //   timer = setTimeout(() => {
+      //     index++;
+      //     if (index < 10) {
+      //       console.log(index);
+      //       clearTimeout(timer);
+      //       setd();
+      //     } else {
+      //       console.log("到达了");
+      //     }
+      //   }, 1000);
+      // }
+      // setd();
+    </script>
+  </body>
+</html>
